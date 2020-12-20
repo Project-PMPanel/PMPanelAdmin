@@ -11,20 +11,28 @@
           </a-card>
         </a-col>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-          <a-card title="Card title" :bordered="false" style="height: 181px">
-            <p>TODO</p>
+          <a-card :title="$i18n.t('dashboard.info.node')" :bordered="false" style="height: 181px">
+            <span style="font-size: 14px;font-weight: bold">{{ $i18n.t('dashboard.info.nodeCount') }} : </span> <span style="font-size: 18px;font-weight: bold;">
+              <router-link :to="{path: '/admin/node'}">{{ dashboard.nodeCount }}</router-link>
+            </span>
+            <p style="font-size: 16px;font-weight: bold;margin-top: 20px">{{ $i18n.t('dashboard.info.offlineCount') }} : <span style="font-size: 24px;font-weight: bold;">{{ dashboard.offlineCount }}</span></p>
           </a-card>
         </a-col>
         <a-col :sm="24" :md="12":xl="6" :style="{ marginBottom: '24px' }">
           <a-card :title="$i18n.t('dashboard.info.user')" :bordered="false" style="height: 181px">
-            <span style="font-size: 14px;font-weight: bold">{{ $i18n.t('dashboard.info.userCount') }} : </span> <span style="font-size: 18px;font-weight: bold;">{{ dashboard.userCount }}</span>
+            <span style="font-size: 14px;font-weight: bold">{{ $i18n.t('dashboard.info.userCount') }} : </span> <span style="font-size: 18px;font-weight: bold;">
+              <router-link :to="{path: '/admin/user'}">{{ dashboard.userCount }}</router-link>
+            </span>
             <p style="font-size: 16px;font-weight: bold;margin-top: 20px">{{ $i18n.t('dashboard.info.todayRegisterCount') }} : <span style="font-size: 24px;font-weight: bold;">{{ dashboard.todayRegisterCount }}</span></p>
           </a-card>
         </a-col>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
           <a-card :title="$i18n.t('dashboard.info.income')" :bordered="false" style="height: 181px">
             <span style="font-size: 14px;font-weight: bold">{{ $i18n.t('dashboard.info.monthIncome') }} : </span> <span style="font-size: 18px;font-weight: bold;">{{ dashboard.monthIncome }}</span>
-            <p style="font-size: 16px;font-weight: bold;margin-top: 20px">{{ $i18n.t('dashboard.info.todayIncome') }} : <span style="font-size: 24px;font-weight: bold;">{{ dashboard.todayIncome }}</span></p>
+            <p style="font-size: 16px;font-weight: bold;margin-top: 20px">
+              {{ $i18n.t('dashboard.info.todayIncome') }} : <span style="font-size: 24px;font-weight: bold;">{{ dashboard.todayIncome }}</span>
+              <span style="margin-left: 8px">{{ $i18n.t('dashboard.info.todayNewOrderCount') }}:{{ dashboard.todayNewOrderCount }} </span>
+            </p>
           </a-card>
         </a-col>
         <a-col :sm="24" :md="24" :lg="24" :xl="24" :style="{ marginBottom: '24px' }">

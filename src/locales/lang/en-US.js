@@ -77,12 +77,16 @@ const locale = {
   'menu.withdrawal': 'Withdrawal',
 
   'dashboard.info.ticket': 'Ticket',
+  'dashboard.info.node': 'Node',
+  'dashboard.info.nodeCount': 'Count',
+  'dashboard.info.offlineCount': 'Offline',
   'dashboard.info.user': 'User',
   'dashboard.info.userCount': 'Count',
   'dashboard.info.todayRegisterCount': 'Today',
   'dashboard.info.income': 'Income',
   'dashboard.info.monthIncome': 'Month',
   'dashboard.info.todayIncome': 'Today',
+  'dashboard.info.todayNewOrderCount': 'New User Order',
   'dashboard.info.log': 'Log',
   'dashboard.cache.clean': 'Clean Cache',
 

@@ -61,12 +61,16 @@ const locale = {
   'menu.withdrawal': '提现管理',
 
   'dashboard.info.ticket': '工单',
+  'dashboard.info.node': '节点',
+  'dashboard.info.nodeCount': '节点总数',
+  'dashboard.info.offlineCount': '离线节点',
   'dashboard.info.user': '用户',
   'dashboard.info.userCount': '用户总数',
   'dashboard.info.todayRegisterCount': '今日注册',
   'dashboard.info.income': '收入',
   'dashboard.info.monthIncome': '本月收入',
   'dashboard.info.todayIncome': '今日收入',
+  'dashboard.info.todayNewOrderCount': '今日新用户订单数',
   'dashboard.info.log': '日志',
   'dashboard.cache.clean': '清理缓存',
 
