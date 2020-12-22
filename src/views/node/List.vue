@@ -134,7 +134,7 @@
           <a-input v-model="editOldNode.server"/>
         </a-form-item>
         <a-form-item :label="$t('node.list.sort')">
-          <a-select :value="editOldNode.sort" @change="handleSelectType">
+          <a-select :value="editOldNode.sort" @change="handleSelectEditType">
             <a-select-option :value="0">SS(R)</a-select-option>
             <a-select-option :value="11">V2ray</a-select-option>
           </a-select>
@@ -376,6 +376,10 @@ export default {
     handleSelectType (value) {
       console.log(value)
       this.newNode.sort = value
+    },
+    handleSelectEditType (value) {
+      console.log(value)
+      this.editOldNode.sort = value
     },
     handleSelectIsMultiUser (value) {
       console.log(value)
