@@ -41,18 +41,18 @@
           <span slot="type" slot-scope="text">
             <span v-if="$i18n.locale === 'zh-CN'">
               <a-tag v-if="text === 1" color="pink">
-                {{ text === 1 ? '明文' : '数据包' }}
+                明文
               </a-tag>
               <a-tag v-else color="green">
-                {{ text === 1 ? '明文' : '数据包' }}
+                数据包
               </a-tag>
             </span>
             <span v-else>
               <a-tag v-if="text === 1" color="pink">
-                {{ text === 1 ? 'Text' : 'Hex' }}
+                Text
               </a-tag>
               <a-tag v-else color="green">
-                {{ text === 1 ? 'Text' : 'Hex' }}
+                Hex
               </a-tag>
             </span>
           </span>
