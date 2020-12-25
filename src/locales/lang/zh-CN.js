@@ -46,6 +46,7 @@ const locale = {
   'menu.setting.payment': '支付设置 ⭐️',
   'menu.setting.schedule': '任务设置 ⭐',
   'menu.setting.other': '其他设置',
+  'menu.setting.client': '松鼠三端',
   'menu.node': '节点管理',
   'menu.node.list': '节点列表',
   'menu.node.online': '在线详情',

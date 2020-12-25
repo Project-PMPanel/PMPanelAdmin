@@ -69,6 +69,12 @@ export const asyncRouterMap = [
             name: 'otherSetting',
             component: () => import('@/views/setting/Other'),
             meta: { title: 'menu.setting.other', hidden: true, icon: 'ellipsis', keepAlive: true, permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/setting/client',
+            name: 'clientSetting',
+            component: () => import('@/views/setting/Client'),
+            meta: { title: 'menu.setting.client', hidden: true, icon: 'appstore', keepAlive: true, permission: [ 'admin' ] }
           }
         ]
       },

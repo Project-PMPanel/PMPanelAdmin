@@ -62,6 +62,7 @@ const locale = {
   'menu.setting.payment': 'Payment ⭐',
   'menu.setting.schedule': 'Schedule ⭐',
   'menu.setting.other': 'Other',
+  'menu.setting.client': 'Client',
   'menu.node': 'Nodes',
   'menu.node.list': 'Nodes',
   'menu.node.online': 'Online',
