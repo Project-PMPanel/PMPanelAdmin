@@ -25,13 +25,20 @@
               <a-icon slot="unCheckedChildren" type="close" />
             </a-switch>
           </a-form-item>
+          -->
           <a-form-item :label="$i18n.locale === 'zh-CN' ? '邮件发信' : 'Send Email'" style="display: inline-block; margin-right: 20px">
             <a-switch v-model="flags.mail">
               <a-icon slot="checkedChildren" type="check" />
               <a-icon slot="unCheckedChildren" type="close" />
             </a-switch>
           </a-form-item>
-          -->
+          <a-form-item :label="$i18n.locale === 'zh-CN' ? '用户过滤' : 'Filter'" style="display: inline-block; margin-right: 20px">
+            <a-select :value="flags.userFilter" @change="handleSelectUserType" style="width: 120px">
+              <a-select-option :value="0">{{ $i18n.locale === 'zh-CN' ? '已过期用户' : 'Expired Users' }}</a-select-option>
+              <a-select-option :value="1">{{ $i18n.locale === 'zh-CN' ? '付费用户 ' : 'Paid Users' }}</a-select-option>
+              <a-select-option :value="2">{{ $i18n.locale === 'zh-CN' ? '全体用户 ' : 'All Users' }}</a-select-option>
+            </a-select>
+          </a-form-item>
         </a-form>
       </div>
       <div>
@@ -57,7 +64,8 @@ export default {
         save: true,
         bot: false,
         mail: false,
-        html: ''
+        html: '',
+        userFilter: 2
       }
     }
   },
@@ -74,6 +82,9 @@ export default {
     getHtml (markdown, html) {
       console.log(html)
       this.flags.html = html
+    },
+    handleSelectUserType (value) {
+      this.flags.userFilter = value
     },
     async saveOrUpdateAnnouncement () {
       const params = Object.assign({}, this.announcement, this.flags)

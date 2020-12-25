@@ -82,8 +82,10 @@ const locale = {
   'settings.site.inviteOnly': '邀请注册',
   'settings.site.mailRegEnable': '注册验证码',
   'settings.site.mailLimit': '邮件发送频率限制',
-  'settings.site.mailType': '邮件类型',
-  'settings.site.mailConfig': '邮件配置',
+  'settings.site.mailType': '验证码邮件类型',
+  'settings.site.mailConfig': '验证码邮件配置',
+  'settings.site.notifyMailType': '通知邮件类型',
+  'settings.site.notifyMailConfig': '通知邮件配置',
 
   'settings.register.enableEmailSuffix': '允许注册的邮箱 [@a.com;@b.com]',
   'settings.register.userPortRange': '用户端口范围',

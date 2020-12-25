@@ -54,9 +54,33 @@
 
           <a-form-item v-if="siteConfig.mailType === 'smtp' " :label="$t('settings.site.mailConfig')">
             <a-input v-model="siteConfig.mailConfig.host" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Host" /><br><br>
+            <span>SSL </span>
+            <a-switch v-model="siteConfig.mailConfig.ssl" @change="updateConfigByName('mailConfig', siteConfig.mailConfig)">
+              <a-icon slot="checkedChildren" type="check" />
+              <a-icon slot="unCheckedChildren" type="close" />
+            </a-switch><br><br>
             <a-input v-model="siteConfig.mailConfig.port" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Port" /><br><br>
             <a-input v-model="siteConfig.mailConfig.username" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Username" /><br><br>
             <a-input v-model="siteConfig.mailConfig.password" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Password" /><br><br>
+          </a-form-item>
+
+          <a-form-item :label="$t('settings.site.notifyMailType')">
+            <a-select :value="siteConfig.notifyMailType" @change="handleSelectNotifyMailType">
+              <a-select-option value="smtp">SMTP</a-select-option>
+              <a-select-option value="aliyunAPI">Aliyun API</a-select-option>
+            </a-select>
+          </a-form-item>
+
+          <a-form-item v-if="siteConfig.notifyMailType === 'smtp' " :label="$t('settings.site.notifyMailConfig')">
+            <a-input v-model="siteConfig.notifyMailConfig.host" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Host" /><br><br>
+            <span>SSL </span>
+            <a-switch v-model="siteConfig.notifyMailConfig.ssl" @change="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)">
+              <a-icon slot="checkedChildren" type="check" />
+              <a-icon slot="unCheckedChildren" type="close" />
+            </a-switch><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.port" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Port" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.username" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Username" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.password" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Password" /><br><br>
           </a-form-item>
         </a-form>
       </a-col>
@@ -83,7 +107,7 @@ export default {
   methods: {
     async updateConfigByName (name, value) {
       // 如果是mailConfig, 转成json字符串
-      if (name === 'mailConfig') {
+      if (name === 'mailConfig' || name === 'notifyMailConfig') {
         value = JSON.stringify(value)
       }
       const params = {
@@ -97,6 +121,9 @@ export default {
     },
     handleSelectMailType (value) {
       this.siteConfig.mailType = value
+    },
+    handleSelectNotifyMailType (value) {
+      this.siteConfig.notifyMailType = value
     }
   }
 }

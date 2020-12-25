@@ -98,8 +98,10 @@ const locale = {
   'settings.site.inviteOnly': 'Invite Only',
   'settings.site.mailRegEnable': 'Mail CheckCode',
   'settings.site.mailLimit': 'Mail Limit',
-  'settings.site.mailType': 'Mail Type',
-  'settings.site.mailConfig': 'Mail Config',
+  'settings.site.mailType': 'CheckCode Mail Type',
+  'settings.site.mailConfig': 'CheckCode Mail Config',
+  'settings.site.notifyMailType': 'Notify Mail Type',
+  'settings.site.notifyMailConfig': 'Notify Mail Config',
 
   'settings.register.enableEmailSuffix': 'Enable register email suffix [@a.com;@b.com]',
   'settings.register.userPortRange': 'User port range',
