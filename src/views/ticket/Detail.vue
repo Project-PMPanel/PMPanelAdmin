@@ -80,8 +80,8 @@ export default {
     async closeTicket () {
       const result = await closeTicket(this.tickets[0].id)
       if (result.code === 200) {
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
         await this.init()
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
       }
     }
   }
