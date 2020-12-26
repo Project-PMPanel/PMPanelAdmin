@@ -135,6 +135,13 @@ const locale = {
   'node.list.nodeIp': '节点ip',
   'node.list.muOnly': '仅启用单端口节点',
   'node.list.operation': '操作',
+  'node.online.userId': '用户Id',
+  'node.online.ip': 'IP',
+  'node.online.time': '在线时间',
+  'node.online.country': '国家',
+  'node.online.region': '省份',
+  'node.online.city': '市区',
+  'node.online.isp': '运营商',
 
   'detect.list.name': '名称',
   'detect.list.regex': '正则',

@@ -149,6 +149,13 @@ const locale = {
   'node.list.nodeIp': 'NodeIP',
   'node.list.muOnly': 'muOnly',
   'node.list.operation': 'Operation',
+  'node.online.userId': 'UserId',
+  'node.online.ip': 'IP',
+  'node.online.time': 'Time',
+  'node.online.country': 'Country',
+  'node.online.region': 'Region',
+  'node.online.city': 'City',
+  'node.online.isp': 'ISP',
 
   'detect.list.name': 'Name',
   'detect.list.regex': 'Regex',

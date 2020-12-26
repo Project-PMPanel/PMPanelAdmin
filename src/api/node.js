@@ -27,13 +27,14 @@ export function getNode (parameter) {
  * @param parameter
  * @returns {AxiosPromise}
  */
-export function getNodeInfoByNodeId (parameter) {
+export function getNodeInfoByNodeId (parameter, nodeId) {
   return new Promise((resolve, reject) => {
     request({
-      url: api.node + '/' + parameter,
-      method: 'get'
+      url: api.node + '/' + nodeId,
+      method: 'get',
+      params: parameter
     }).then(response => {
-      resolve(response)
+      resolve(response.data)
     }).catch(error => {
       reject(error)
     })

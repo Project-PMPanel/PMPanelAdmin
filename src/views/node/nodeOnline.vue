@@ -1,33 +1,116 @@
 <template>
   <div>
-    <a-card :bodyStyle="{padding: 0}" :bordered="false">
-      <span v-for="(item, index) in info.onlineIps" :key="index">
-        userId: {{ item.userId }} - ip: {{ item.ip }}<br>
-      </span>
-    </a-card>
+    <a-row :gutter="24">
+      <a-col>
+        <a-card :body-style="{padding: '0'}" :bordered="false">
+          <s-table ref="table" size="default" :rowKey="(record, index) => index" :columns="ipColumns" :data="loadIpData">
+          </s-table>
+        </a-card>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script>
 import { getNodeInfoByNodeId } from '@/api/node'
+import { STable } from '@/components'
 
 export default {
   name: 'NodeOnline',
   components: {
+    STable
   },
   data () {
     return {
-      info: {}
+      info: {},
+      ipColumns: [
+        {
+          title: this.$i18n.t('node.online.userId'),
+          align: 'center',
+          dataIndex: 'userId'
+        },
+        {
+          title: this.$i18n.t('node.online.ip'),
+          align: 'center',
+          dataIndex: 'ip'
+        },
+        {
+          title: this.$i18n.t('node.online.time'),
+          align: 'center',
+          dataIndex: 'time'
+        },
+        {
+          title: this.$i18n.t('node.online.country'),
+          align: 'center',
+          dataIndex: 'country'
+        },
+        {
+          title: this.$i18n.t('node.online.region'),
+          align: 'center',
+          dataIndex: 'region'
+        },
+        {
+          title: this.$i18n.t('node.online.city'),
+          align: 'center',
+          dataIndex: 'city'
+        },
+        {
+          title: this.$i18n.t('node.online.isp'),
+          align: 'center',
+          dataIndex: 'isp'
+        }
+      ],
+      loadIpData: parameter => {
+        return getNodeInfoByNodeId(Object.assign(parameter), this.$route.params.nodeId)
+          .then(res => {
+            console.log(res.data)
+            return res.data
+          })
+      }
     }
   },
-  async created () {
-    const nodeId = this.$route.params.nodeId
-    const result = await getNodeInfoByNodeId(nodeId)
-    if (result.code === 200) {
-      this.info = result.data.info
-      console.log(this.info)
+  watch: {
+    '$i18n.locale' () {
+      this.ipColumns = [
+        {
+          title: this.$i18n.t('node.online.userId'),
+          align: 'center',
+          dataIndex: 'userId'
+        },
+        {
+          title: this.$i18n.t('node.online.ip'),
+          align: 'center',
+          dataIndex: 'ip'
+        },
+        {
+          title: this.$i18n.t('node.online.time'),
+          align: 'center',
+          dataIndex: 'time'
+        },
+        {
+          title: this.$i18n.t('node.online.country'),
+          align: 'center',
+          dataIndex: 'country'
+        },
+        {
+          title: this.$i18n.t('node.online.region'),
+          align: 'center',
+          dataIndex: 'region'
+        },
+        {
+          title: this.$i18n.t('node.online.city'),
+          align: 'center',
+          dataIndex: 'city'
+        },
+        {
+          title: this.$i18n.t('node.online.isp'),
+          align: 'center',
+          dataIndex: 'isp'
+        }
+      ]
     }
   },
+  async created () {},
   methods: {}
 }
 </script>
