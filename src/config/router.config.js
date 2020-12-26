@@ -128,6 +128,29 @@ export const asyncRouterMap = [
         component: () => import('@/views/plan/Plan'),
         meta: { title: 'menu.plan', keepAlive: false, icon: 'shopping-cart', permission: [ 'admin' ] }
       },
+      // ticket
+      {
+        path: '/admin/ticket',
+        name: 'ticket',
+        redirect: '/admin/ticket/index',
+        component: RouteView,
+        meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: 'index',
+            name: 'ticketIndex',
+            component: () => import('@/views/ticket/Ticket'),
+            meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/ticket/detail/:id',
+            name: 'ticketDetail',
+            component: () => import('@/views/ticket/Detail'),
+            meta: { hidden: true, keepAlive: false, permission: [ 'admin' ] }
+          }
+        ]
+      },
       {
         path: '/admin/tutorial',
         name: 'tutorial',

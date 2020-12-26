@@ -7,7 +7,13 @@
       <div v-else>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
           <a-card :title="$i18n.t('dashboard.info.ticket')" :bordered="false" style="height: 181px">
-            <p>TODO</p>
+            <span>
+              <span>{{ $i18n.t('dashboard.info.ticketCount') }} : </span>
+              <span style="font-size: 18px;font-weight: bold;">
+                <router-link :to="{path: '/admin/ticket/index'}">{{ dashboard.ticketCount }}</router-link>
+              </span>
+              <br>
+            </span>
           </a-card>
         </a-col>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
