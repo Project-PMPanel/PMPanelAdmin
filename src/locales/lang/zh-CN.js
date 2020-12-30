@@ -214,6 +214,7 @@ const locale = {
   'plan.list.supportMedia': '支持流媒体',
   'plan.list.supportDirectLine': '支持专线',
 
+  'ticket.userId': '用户id',
   'ticket.title': '标题',
   'ticket.time': '创建时间',
   'ticket.status': '状态',

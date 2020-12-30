@@ -1,9 +1,15 @@
 <template>
   <page-header-wrapper :breadcrumb="{}">
-    <a-row :gutter="24">
+    <div v-if="loading" style="text-align: center;margin: 40px 0">
+      <a-spin size="large" tip="Loading..." :spinning="loading"/>
+    </div>
+    <a-row v-else :gutter="24">
       <a-col>
         <div style="font-size: 24px;color: #777171;font-weight: bold;margin-bottom: 24px">
-          {{ tickets[0].title }}
+          {{ tickets[0].title }} by
+          <router-link :to="'/admin/user/' + tickets[0].userId">
+            {{ tickets[0].userId }}
+          </router-link>
         </div>
       </a-col>
       <a-col>
@@ -37,6 +43,7 @@ import { getTicketById, saveTicket, closeTicket } from '@/api/ticket'
 export default {
   data () {
     return {
+      loading: true,
       close: false,
       ticket: {},
       tickets: [
@@ -62,6 +69,7 @@ export default {
         if (this.tickets[0].status === 2) {
           this.close = true
         }
+        this.loading = false
       }
     },
     async saveTicket () {

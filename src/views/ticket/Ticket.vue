@@ -4,6 +4,11 @@
       <a-col>
         <a-card :body-style="{padding: '0'}" :bordered="false">
           <s-table ref="table" size="default" rowKey="id" :columns="ticketColumns" :data="loadTicketData">
+            <span slot="userId" slot-scope="text">
+              <router-link :to="'/admin/user/' + text">
+                {{ text }}
+              </router-link>
+            </span>
             <span slot="status" slot-scope="text">
               <a-tag :color="text === 0 ? 'red' : (text === 1 ? 'cyan' : 'blue')">
                 {{ text === 0 ? $t('ticket.status.0') : (text === 1 ? $t('ticket.status.1') : $t('ticket.status.2')) }}
@@ -37,6 +42,12 @@ export default {
     return {
       ticket: {},
       ticketColumns: [
+        {
+          title: this.$i18n.t('ticket.userId'),
+          align: 'center',
+          dataIndex: 'userId',
+          scopedSlots: { customRender: 'userId' }
+        },
         {
           title: this.$i18n.t('ticket.title'),
           align: 'center',
@@ -73,6 +84,12 @@ export default {
   watch: {
     '$i18n.locale' () {
       this.ticketColumns = [
+        {
+          title: this.$i18n.t('ticket.userId'),
+          align: 'center',
+          dataIndex: 'userId',
+          scopedSlots: { customRender: 'userId' }
+        },
         {
           title: this.$i18n.t('ticket.title'),
           align: 'center',

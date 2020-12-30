@@ -228,6 +228,7 @@ const locale = {
   'plan.list.supportMedia': 'SupportMedia',
   'plan.list.supportDirectLine': 'SupportDirectLine',
 
+  'ticket.userId': 'userId',
   'ticket.title': 'Title',
   'ticket.time': 'Time',
   'ticket.status': 'Status',
