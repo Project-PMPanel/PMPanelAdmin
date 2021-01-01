@@ -93,6 +93,7 @@ const locale = {
   'dashboard.info.todayOrderCount': 'Count',
   'dashboard.info.todayNewOrderCount': 'New User Order',
   'dashboard.cache.clean': 'Clean Cache',
+  'dashboard.notify.renew': 'Notify Renew',
 
   'settings.site.siteName': 'Site Name',
   'settings.site.siteUrl': 'Site Url',

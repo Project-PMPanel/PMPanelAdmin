@@ -2,7 +2,8 @@ import request from '@/utils/request'
 
 const api = {
   dashboard: '/admin/dashboard',
-  cache: '/admin/cache'
+  cache: '/admin/cache',
+  notifyRenew: '/admin/notifyRenew'
 }
 
 /**
@@ -31,6 +32,23 @@ export function cleanCache () {
     request({
       url: api.cache,
       method: 'delete'
+    }).then(response => {
+      resolve(response)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+/**
+ * 通知续费
+ * @returns {AxiosPromise}
+ */
+export function notifyRenew () {
+  return new Promise((resolve, reject) => {
+    request({
+      url: api.notifyRenew,
+      method: 'get'
     }).then(response => {
       resolve(response)
     }).catch(error => {

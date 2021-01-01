@@ -48,7 +48,7 @@
           <a-form-item :label="$t('settings.site.mailType')">
             <a-select :value="siteConfig.mailType" @change="handleSelectMailType">
               <a-select-option value="smtp">SMTP</a-select-option>
-              <a-select-option value="aliyunAPI">Aliyun API</a-select-option>
+              <a-select-option value="postalAPI">PostalAPI</a-select-option>
             </a-select>
           </a-form-item>
 
@@ -63,11 +63,16 @@
             <a-input v-model="siteConfig.mailConfig.username" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Username" /><br><br>
             <a-input v-model="siteConfig.mailConfig.password" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Password" /><br><br>
           </a-form-item>
+          <a-form-item v-if="siteConfig.mailType === 'postalAPI' " :label="$t('settings.site.mailConfig')">
+            <a-input v-model="siteConfig.mailConfig.host" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Host" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.apiKey" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="ApiKey" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.username" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Username" /><br><br>
+          </a-form-item>
 
           <a-form-item :label="$t('settings.site.notifyMailType')">
             <a-select :value="siteConfig.notifyMailType" @change="handleSelectNotifyMailType">
               <a-select-option value="smtp">SMTP</a-select-option>
-              <a-select-option value="aliyunAPI">Aliyun API</a-select-option>
+              <a-select-option value="postalAPI">PostalAPI</a-select-option>
             </a-select>
           </a-form-item>
 
@@ -81,6 +86,11 @@
             <a-input v-model="siteConfig.notifyMailConfig.port" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Port" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.username" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Username" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.password" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Password" /><br><br>
+          </a-form-item>
+          <a-form-item v-if="siteConfig.notifyMailType === 'postalAPI' " :label="$t('settings.site.notifyMailConfig')">
+            <a-input v-model="siteConfig.notifyMailConfig.host" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Host" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.apiKey" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="ApiKey" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.username" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Username" /><br><br>
           </a-form-item>
         </a-form>
       </a-col>
@@ -120,10 +130,18 @@ export default {
       }
     },
     handleSelectMailType (value) {
+      this.siteConfig.mailConfig = {
+        ssl: false
+      }
       this.siteConfig.mailType = value
+      this.updateConfigByName('mailType', value)
     },
     handleSelectNotifyMailType (value) {
+      this.siteConfig.notifyMailConfig = {
+        ssl: false
+      }
       this.siteConfig.notifyMailType = value
+      this.updateConfigByName('notifyMailType', value)
     }
   }
 }

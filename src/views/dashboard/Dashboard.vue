@@ -78,7 +78,12 @@
           </a-card>
         </a-col>
         <div>
-          <a-button type="primary" @click="cleanCache">{{ $i18n.t('dashboard.cache.clean') }}</a-button>
+          <span style="margin-right: 10px">
+            <a-button type="primary" @click="cleanCache">{{ $i18n.t('dashboard.cache.clean') }}</a-button>
+          </span>
+          <span style="margin-right: 10px">
+            <a-button type="primary" @click="notifyRenew">{{ $i18n.t('dashboard.notify.renew') }}</a-button>
+          </span>
         </div>
       </div>
     </a-row>
@@ -86,7 +91,7 @@
 </template>
 
 <script>
-import { getDashboardInfo, cleanCache } from '@/api/dashboard'
+import { getDashboardInfo, cleanCache, notifyRenew } from '@/api/dashboard'
 
 export default {
   name: 'Dashboard',
@@ -107,6 +112,12 @@ export default {
   methods: {
     async cleanCache  () {
       const result = await cleanCache()
+      if (result.code === 200) {
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
+      }
+    },
+    async notifyRenew  () {
+      const result = await notifyRenew()
       if (result.code === 200) {
         this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
       }

@@ -78,6 +78,7 @@ const locale = {
   'dashboard.info.todayOrderCount': '今日订单数',
   'dashboard.info.todayNewOrderCount': '今日新用户订单数',
   'dashboard.cache.clean': '清理缓存',
+  'dashboard.notify.renew': '通知续费',
 
   'settings.site.siteName': '站点名称',
   'settings.site.siteUrl': '站点网址',
