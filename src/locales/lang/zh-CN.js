@@ -76,7 +76,7 @@ const locale = {
   'dashboard.info.monthIncome': '本月收入',
   'dashboard.info.todayIncome': '今日收入',
   'dashboard.info.todayOrderCount': '今日订单数',
-  'dashboard.info.todayNewOrderCount': '今日新用户订单数',
+  'dashboard.info.monthPaidUserCount': '本月新用户订单数',
   'dashboard.cache.clean': '清理缓存',
   'dashboard.notify.renew': '通知续费',
 

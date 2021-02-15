@@ -90,8 +90,8 @@ const locale = {
   'dashboard.info.income': 'Income',
   'dashboard.info.monthIncome': 'Month',
   'dashboard.info.todayIncome': 'Today',
-  'dashboard.info.todayOrderCount': 'Count',
-  'dashboard.info.todayNewOrderCount': 'New User Order',
+  'dashboard.info.todayOrderCount': 'Today Paid Count',
+  'dashboard.info.monthPaidUserCount': 'This Month Paid Count',
   'dashboard.cache.clean': 'Clean Cache',
   'dashboard.notify.renew': 'Notify Renew',
 

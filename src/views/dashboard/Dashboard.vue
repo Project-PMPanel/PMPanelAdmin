@@ -71,8 +71,8 @@
               <br>
             </span>
             <span>
-              <span>{{ $i18n.t('dashboard.info.todayNewOrderCount') }} : </span>
-              <span style="font-size: 18px;font-weight: bold;">{{ dashboard.todayNewOrderCount }}</span>
+              <span>{{ $i18n.t('dashboard.info.monthPaidUserCount') }} : </span>
+              <span style="font-size: 18px;font-weight: bold;">{{ dashboard.monthPaidUserCount }}</span>
               <br>
             </span>
           </a-card>
