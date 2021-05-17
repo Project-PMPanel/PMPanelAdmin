@@ -70,3 +70,17 @@ export function deleteUserById (parameter) {
     })
   })
 }
+
+export function resetPasswdById (parameter) {
+  return new Promise((resolve, reject) => {
+    request({
+      url: api.user + '/passwd',
+      method: 'put',
+      data: parameter
+    }).then(response => {
+      resolve(response)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}

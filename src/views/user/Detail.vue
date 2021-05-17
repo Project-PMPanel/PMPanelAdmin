@@ -3,6 +3,7 @@
     <a-button type="primary" v-if="edit" @click="updateUserById" style="margin: 0 10px 20px 0">{{ $t('setting.save') }}</a-button>
     <a-button type="danger" v-if="!edit" @click="edit = true;infoBak=JSON.parse(JSON.stringify(info))" style="margin-bottom: 20px">{{ $t('setting.change') }}</a-button>
     <a-button type="default" v-else @click="edit = false;info=infoBak" style="margin-bottom: 20px">{{ $t('setting.cancel') }}</a-button>
+    <a-button type="primary" @click="resetPasswdById" style="margin: 0 10px 20px 20px">{{ $t('user.detail.resetPasswd') }}</a-button>
     <a-card :bordered="false">
       <div v-if="loading" style="text-align: center;margin: 40px 0">
         <a-spin size="large" tip="Loading..." :spinning="loading"/>
@@ -38,7 +39,7 @@
                     <a-select :value="info.user[item]" @change="handleSelectIsAdmin">
                       <a-select-option :value="0">{{ $t('user.detail.isAdmin.user') }}</a-select-option>
                       <a-select-option :value="1">{{ $t('user.detail.isAdmin.admin') }}</a-select-option>
-                      <a-select-option :value="2">{{ $t('user.detail.isAdmin.customerService') }}</a-select-option>
+                      <a-select-option v-if="false" :value="2">{{ $t('user.detail.isAdmin.customerService') }}</a-select-option>
                     </a-select>
                   </span>
                   <span v-else>
@@ -56,7 +57,7 @@
 </template>
 
 <script>
-import { getUserDetail, updateUserById } from '@/api/user'
+import { getUserDetail, updateUserById, resetPasswdById } from '@/api/user'
 
 export default {
   name: 'Detail',
@@ -103,6 +104,13 @@ export default {
       if (result.code === 200) {
         this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
         this.edit = false
+      }
+    },
+    async resetPasswdById () {
+      console.log(this.info.user)
+      const result = await resetPasswdById(this.info.user)
+      if (result.code === 200) {
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
       }
     }
   }

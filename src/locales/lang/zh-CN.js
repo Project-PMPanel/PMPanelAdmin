@@ -191,6 +191,7 @@ const locale = {
   'user.detail.isAdmin.admin': '管理员',
   'user.detail.isAdmin.customerService': '客服',
   'user.detail.enable': '启用',
+  'user.detail.resetPasswd': '重置连接密码',
 
   'plan.list.name': '名称',
   'plan.list.nameEnglish': '英文名称',

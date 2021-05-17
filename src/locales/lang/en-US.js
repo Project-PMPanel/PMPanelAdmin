@@ -205,6 +205,7 @@ const locale = {
   'user.detail.isAdmin.admin': 'Admin',
   'user.detail.isAdmin.customerService': 'CustomerService',
   'user.detail.enable': 'Enable',
+  'user.detail.resetPasswd': 'ResetPasswd',
 
   'plan.list.name': 'Name',
   'plan.list.nameEnglish': 'EnglishName',
