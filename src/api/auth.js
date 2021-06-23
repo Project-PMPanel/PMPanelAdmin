@@ -3,7 +3,8 @@ import request from '@/utils/request'
 const authApi = {
   Login: '/auth/login',
   // get my info
-  UserInfo: '/user/info'
+  UserInfo: '/user/info',
+  getSiteConfig: '/auth/getSiteConfig'
 }
 
 /**
@@ -22,6 +23,17 @@ export function auth (parameter) {
 export function getInfo () {
   return request({
     url: authApi.UserInfo,
+    method: 'get'
+  })
+}
+
+/**
+ * 获取站点配置
+ * @returns {AxiosPromise}
+ */
+export function getSiteConfig () {
+  return request({
+    url: authApi.getSiteConfig,
     method: 'get'
   })
 }

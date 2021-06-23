@@ -71,6 +71,12 @@ export const asyncRouterMap = [
             meta: { title: 'menu.setting.other', hidden: true, icon: 'ellipsis', keepAlive: true, permission: [ 'admin' ] }
           },
           {
+            path: '/admin/setting/oauth',
+            name: 'oauthSetting',
+            component: () => import('@/views/setting/Oauth'),
+            meta: { title: 'menu.setting.oauth', hidden: true, icon: 'login', keepAlive: true, permission: [ 'admin' ] }
+          },
+          {
             path: '/admin/setting/client',
             name: 'clientSetting',
             component: () => import('@/views/setting/Client'),

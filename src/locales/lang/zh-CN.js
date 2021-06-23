@@ -47,6 +47,7 @@ const locale = {
   'menu.setting.payment': '支付设置 ⭐️',
   'menu.setting.schedule': '任务设置 ⭐',
   'menu.setting.other': '其他设置',
+  'menu.setting.oauth': '三方登录',
   'menu.setting.client': '松鼠三端',
   'menu.node': '节点管理',
   'menu.node.list': '节点列表',
@@ -111,6 +112,12 @@ const locale = {
   'settings.payment.wxpay': '微信',
 
   'settings.other.trafficSaveDays': '流量日志保留天数',
+
+  'settings.oauth.enable': '开启三方登录',
+  'settings.oauth.google.enable': 'Google',
+  'settings.oauth.google.id': 'Id',
+  'settings.oauth.google.secret': 'Secret',
+  'settings.oauth.google.redirectUri': 'RedirectUri',
 
   'node.list.addNode': '添加节点',
   'node.list.editNode': '编辑节点',

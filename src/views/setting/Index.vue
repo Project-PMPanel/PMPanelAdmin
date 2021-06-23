@@ -40,6 +40,12 @@
                 {{ $i18n.t('menu.setting.other') }}
               </router-link>
             </a-menu-item>
+            <a-menu-item key="/admin/setting/oauth">
+              <router-link :to="{ path: '/admin/setting/oauth' }">
+                <a-icon type="login" />
+                {{ $i18n.t('menu.setting.oauth') }}
+              </router-link>
+            </a-menu-item>
             <a-menu-item key="/admin/setting/client">
               <router-link :to="{ path: '/admin/setting/client' }">
                 <a-icon type="appstore" />

@@ -39,6 +39,8 @@
 // import md5 from 'md5'
 // import TwoStepCaptcha from '@/components/tools/TwoStepCaptcha'
 import { mapActions } from 'vuex'
+import storage from 'store'
+import { getSiteConfig } from '@/api/auth'
 
 export default {
   components: {
@@ -62,6 +64,11 @@ export default {
         smsSendBtn: false
       }
     }
+  },
+  async created () {
+    // get config
+    const result = await getSiteConfig()
+    storage.set('SITE_TITLE', result.data.panelSiteTitle)
   },
   methods: {
     ...mapActions(['Login']),

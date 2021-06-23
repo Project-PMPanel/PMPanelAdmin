@@ -63,6 +63,7 @@ const locale = {
   'menu.setting.payment': 'Payment ⭐',
   'menu.setting.schedule': 'Schedule ⭐',
   'menu.setting.other': 'Other',
+  'menu.setting.oauth': 'Oauth',
   'menu.setting.client': 'Client',
   'menu.node': 'Nodes',
   'menu.node.list': 'Nodes',
@@ -125,6 +126,12 @@ const locale = {
   'settings.payment.alipay.alipay.alipayConfig.f2f': 'Enable F2F',
   'settings.payment.wxpay': 'wxpay',
   'settings.other.trafficSaveDays': 'User traffic logs days',
+
+  'settings.oauth.enable': 'Enable',
+  'settings.oauth.google.enable': 'Google',
+  'settings.oauth.google.id': 'Id',
+  'settings.oauth.google.secret': 'Secret',
+  'settings.oauth.google.redirectUri': 'RedirectUri',
 
   'node.list.addNode': 'Add a node',
   'node.list.editNode': 'Edit the node',

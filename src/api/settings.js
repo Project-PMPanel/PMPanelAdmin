@@ -5,6 +5,7 @@ const api = {
   getRegisterConfig: '/admin/getRegisterConfig',
   getPaymentConfig: '/admin/getPaymentConfig',
   getOtherConfig: '/admin/getOtherConfig',
+  getOauthConfig: '/admin/getOauthConfig',
   getClientConfig: '/admin/getClientConfig',
   updateConfigByName: '/admin/updateConfig'
 }
@@ -68,6 +69,23 @@ export function getOtherConfig () {
   return new Promise((resolve, reject) => {
     request({
       url: api.getOtherConfig,
+      method: 'get'
+    }).then(response => {
+      resolve(response)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+/**
+ * 获取其他配置
+ * @returns {AxiosPromise}
+ */
+export function getOauthConfig () {
+  return new Promise((resolve, reject) => {
+    request({
+      url: api.getOauthConfig,
       method: 'get'
     }).then(response => {
       resolve(response)
