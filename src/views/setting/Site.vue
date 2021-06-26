@@ -62,6 +62,7 @@
             <a-input v-model="siteConfig.mailConfig.port" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Port" /><br><br>
             <a-input v-model="siteConfig.mailConfig.username" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Username" /><br><br>
             <a-input v-model="siteConfig.mailConfig.password" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Password" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.from" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="From" /><br><br>
           </a-form-item>
           <a-form-item v-if="siteConfig.mailType === 'postalAPI' " :label="$t('settings.site.mailConfig')">
             <a-input v-model="siteConfig.mailConfig.host" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Host" /><br><br>
@@ -86,6 +87,7 @@
             <a-input v-model="siteConfig.notifyMailConfig.port" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Port" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.username" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Username" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.password" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Password" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.from" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="From" /><br><br>
           </a-form-item>
           <a-form-item v-if="siteConfig.notifyMailType === 'postalAPI' " :label="$t('settings.site.notifyMailConfig')">
             <a-input v-model="siteConfig.notifyMailConfig.host" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Host" /><br><br>
