@@ -107,6 +107,7 @@ const locale = {
   'settings.site.mailConfig': 'CheckCode Mail Config',
   'settings.site.notifyMailType': 'Notify Mail Type',
   'settings.site.notifyMailConfig': 'Notify Mail Config',
+  'settings.site.enableNotifyRenew': 'Send RenewMail at 28 of every month',
 
   'settings.register.enableEmailSuffix': 'Enable register email suffix [@a.com;@b.com]',
   'settings.register.userPortRange': 'User port range',

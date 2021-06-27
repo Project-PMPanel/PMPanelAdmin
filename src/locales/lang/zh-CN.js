@@ -92,6 +92,7 @@ const locale = {
   'settings.site.mailConfig': '验证码邮件配置',
   'settings.site.notifyMailType': '通知邮件类型',
   'settings.site.notifyMailConfig': '通知邮件配置',
+  'settings.site.enableNotifyRenew': '月底邮件通知续费(可能需要耗费大量邮件资源)',
 
   'settings.register.enableEmailSuffix': '允许注册的邮箱 [@a.com;@b.com]',
   'settings.register.userPortRange': '用户端口范围',

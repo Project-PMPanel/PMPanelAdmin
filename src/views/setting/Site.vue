@@ -108,6 +108,12 @@
             <a-input v-model="siteConfig.notifyMailConfig.accountName" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="AccountName" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.alias" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Alias" /><br><br>
           </a-form-item>
+          <a-form-item :label="$t('settings.site.enableNotifyRenew')" style="display: inline-block; margin-right: 20px">
+            <a-switch v-model="siteConfig.enableNotifyRenew" @change="updateConfigByName('enableNotifyRenew', siteConfig.enableNotifyRenew)">
+              <a-icon slot="checkedChildren" type="check" />
+              <a-icon slot="unCheckedChildren" type="close" />
+            </a-switch>
+          </a-form-item>
         </a-form>
       </a-col>
     </a-row>
