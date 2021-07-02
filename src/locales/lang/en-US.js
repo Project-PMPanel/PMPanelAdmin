@@ -81,6 +81,7 @@ const locale = {
   'menu.withdrawal': 'Withdrawal',
 
   'dashboard.info.ticket': 'Ticket',
+  'dashboard.info.ticketCount': 'Todo ticket',
   'dashboard.info.node': 'Node',
   'dashboard.info.nodeCount': 'Count',
   'dashboard.info.offlineCount': 'Offline',
