@@ -50,6 +50,7 @@
               <a-select-option value="smtp">SMTP</a-select-option>
               <a-select-option value="postalAPI">PostalAPI</a-select-option>
               <a-select-option value="aliyunAPI">AliyunAPI</a-select-option>
+              <a-select-option value="mailgunAPI">MailgunAPI</a-select-option>
             </a-select>
           </a-form-item>
 
@@ -76,12 +77,18 @@
             <a-input v-model="siteConfig.mailConfig.accountName" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="AccountName" /><br><br>
             <a-input v-model="siteConfig.mailConfig.alias" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Alias" /><br><br>
           </a-form-item>
+          <a-form-item v-if="siteConfig.mailType === 'mailgunAPI' " :label="$t('settings.site.mailConfig')">
+            <a-input v-model="siteConfig.mailConfig.key" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Key" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.domain" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Domain" /><br><br>
+            <a-input v-model="siteConfig.mailConfig.sender" @blur="updateConfigByName('mailConfig', siteConfig.mailConfig)" placeholder="Sender" /><br><br>
+          </a-form-item>
 
           <a-form-item :label="$t('settings.site.notifyMailType')">
             <a-select :value="siteConfig.notifyMailType" @change="handleSelectNotifyMailType">
               <a-select-option value="smtp">SMTP</a-select-option>
               <a-select-option value="postalAPI">PostalAPI</a-select-option>
               <a-select-option value="aliyunAPI">AliyunAPI</a-select-option>
+              <a-select-option value="mailgunAPI">MailgunAPI</a-select-option>
             </a-select>
           </a-form-item>
 
@@ -107,6 +114,11 @@
             <a-input v-model="siteConfig.notifyMailConfig.accessSecret" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="AccessSecret" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.accountName" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="AccountName" /><br><br>
             <a-input v-model="siteConfig.notifyMailConfig.alias" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Alias" /><br><br>
+          </a-form-item>
+          <a-form-item v-if="siteConfig.notifyMailType === 'mailgunAPI' " :label="$t('settings.site.notifyMailConfig')">
+            <a-input v-model="siteConfig.notifyMailConfig.key" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Key" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.domain" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Domain" /><br><br>
+            <a-input v-model="siteConfig.notifyMailConfig.sender" @blur="updateConfigByName('notifyMailConfig', siteConfig.notifyMailConfig)" placeholder="Sender" /><br><br>
           </a-form-item>
           <a-form-item :label="$t('settings.site.enableNotifyRenew')" style="display: inline-block; margin-right: 20px">
             <a-switch v-model="siteConfig.enableNotifyRenew" @change="updateConfigByName('enableNotifyRenew', siteConfig.enableNotifyRenew)">
