@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { getNodeInfoByNodeId } from '@/api/node'
+import { getNodeInfoByTypeNodeId } from '@/api/node'
 import { STable } from '@/components'
 
 export default {
@@ -61,7 +61,8 @@ export default {
         }
       ],
       loadIpData: parameter => {
-        return getNodeInfoByNodeId(Object.assign(parameter), this.$route.params.nodeId)
+        // TODO 根据url参数获取当前类型节点的详细在线信息
+        return getNodeInfoByTypeNodeId(Object.assign(parameter), this.$route.params.nodeId)
           .then(res => {
             console.log(res.data)
             return res.data

@@ -96,7 +96,7 @@
     </div>
     <!--#########################################-->
     <div>
-      <div style="color: rgba(0, 0, 0, 0.85);font-size: 20px;font-weight: 500;line-height: 28px;margin: 12px 0;">
+      <div style="color: rgba(0, 0, 0, 0.85);font-size: 20px;font-weight: 500;line-height: 28px;margin: 12px 0;display: none">
         <div>
           <span>{{ $i18n.t('detect.list.nodeWithDetects') }}</span>
         </div>
@@ -198,7 +198,7 @@
 </template>
 
 <script>
-import { getAllNodes, getAllDetects, getDetect, addDetect, submitEditDetect, deleteDetectById, getNodeWithDetect, addNodeWithDetect, submitEditNodeWithDetect, deleteNodeWithDetectById } from '@/api/detect'
+import { getAllDetects, getDetect, addDetect, submitEditDetect, deleteDetectById, getNodeWithDetect, addNodeWithDetect, submitEditNodeWithDetect, deleteNodeWithDetectById } from '@/api/detect'
 import { STable } from '@/components'
 
 export default {
@@ -353,11 +353,11 @@ export default {
     }
   },
   async created () {
-    const allNodesResult = await getAllNodes()
+    /* const allNodesResult = await getAllNodes()
     if (allNodesResult.code === 200) {
       this.allNodes = allNodesResult.data.allNodes
       this.detectNodeList = allNodesResult.data.detectNodeList
-    }
+    } */
     const allDetectsResult = await getAllDetects()
     if (allDetectsResult.code === 200) {
       this.allDetects = allDetectsResult.data.allDetects
