@@ -176,6 +176,7 @@
                 <a-select :value="newV2rayNode.network" @change="handleSelectNetwork">
                   <a-select-option value="tcp">tcp</a-select-option>
                   <a-select-option value="ws">ws</a-select-option>
+                  <a-select-option value="grpc">grpc</a-select-option>
                 </a-select>
               </a-form-item>
               <a-form-item :label="$t('node.list.security')">
@@ -285,6 +286,7 @@
               <a-select :value="editOldV2rayNode.network" @change="handleSelectEditNetwork">
                 <a-select-option value="tcp">tcp</a-select-option>
                 <a-select-option value="ws">ws</a-select-option>
+                <a-select-option value="grpc">grpc</a-select-option>
               </a-select>
             </a-form-item>
             <a-form-item :label="$t('node.list.security')">
@@ -354,6 +356,9 @@
               </a-form-item>
               <a-form-item :label="$t('node.list.subPort')">
                 <a-input v-model="newTrojanNode.subPort"/>
+              </a-form-item>
+              <a-form-item :label="$t('node.list.sni')">
+                <a-input v-model="newTrojanNode.sni"/>
               </a-form-item>
               <a-form-item :label="$t('node.list.grpc')">
                 <a-switch v-model="newTrojanNode.grpc">
@@ -450,6 +455,9 @@
             </a-form-item>
             <a-form-item :label="$t('node.list.subPort')">
               <a-input v-model="editOldTrojanNode.subPort"/>
+            </a-form-item>
+            <a-form-item :label="$t('node.list.sni')">
+              <a-input v-model="editOldTrojanNode.sni"/>
             </a-form-item>
             <a-form-item :label="$t('node.list.grpc')">
               <a-switch v-model="editOldTrojanNode.grpc">
