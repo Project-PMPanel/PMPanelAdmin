@@ -54,8 +54,8 @@
         <span slot="action" slot-scope="text, record">
           <template>
             <router-link :to="{path:'/admin/order/detail/'+record.orderId}">{{ $t('order.list.operation.detail') }}</router-link>
-            <a-divider v-if="record.status === 0" type="vertical" />
-            <a-popconfirm v-if="record.status === 0" :title="$t('order.list.operation.confirm')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="confirmOrder(record.orderId)">
+            <a-divider v-if="record.status === 0 || record.status === 2" type="vertical" />
+            <a-popconfirm v-if="record.status === 0 || record.status === 2" :title="$t('order.list.operation.confirm')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="confirmOrder(record.orderId)">
               <a>{{ $t('order.list.operation.confirm') }}</a>
             </a-popconfirm>
           </template>
