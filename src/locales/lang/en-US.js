@@ -264,6 +264,7 @@ const locale = {
   'order.list.operation': 'Operation',
   'order.list.operation.detail': 'Detail',
   'order.list.operation.confirm': 'Confirm',
+  'order.list.operation.refund': 'Refund',
   'order.list.operation.cancel': 'Cancel',
   'plan.order.details.planName': 'Plan',
   'plan.order.details.orderId': 'Order ID',

@@ -54,6 +54,10 @@
         <span slot="action" slot-scope="text, record">
           <template>
             <router-link :to="{path:'/admin/order/detail/'+record.orderId}">{{ $t('order.list.operation.detail') }}</router-link>
+            <a-divider v-if="record.status === 1" type="vertical" />
+            <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.refund')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="refundOrder(record.orderId)">
+              <a>{{ $t('order.list.operation.refund') }}</a>
+            </a-popconfirm>
             <a-divider v-if="record.status === 0 || record.status === 1 || record.status === 2" type="vertical" />
             <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.cancel')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="cancelOrder(record.orderId)">
               <a>{{ $t('order.list.operation.cancel') }}</a>
@@ -69,7 +73,7 @@
 </template>
 
 <script>
-import { getOrder, deleteOrderById, cancelOrder, confirmOrder } from '@/api/order'
+import { getOrder, deleteOrderById, refundOrder, cancelOrder, confirmOrder } from '@/api/order'
 import { STable } from '@/components'
 
 export default {
@@ -193,6 +197,13 @@ export default {
     },
     async deleteOrderById (id) {
       const result = await deleteOrderById(id)
+      if (result.code === 200) {
+        this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
+      }
+    },
+    async refundOrder (id) {
+      const result = await refundOrder(id)
       if (result.code === 200) {
         this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
         this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
