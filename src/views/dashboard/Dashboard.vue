@@ -6,11 +6,18 @@
       </div>
       <div v-else>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
-          <a-card :title="$i18n.t('dashboard.info.ticket')" :bordered="false" style="height: 181px">
+          <a-card :title="$i18n.t('dashboard.info.todo')" :bordered="false" style="height: 181px">
             <span>
-              <span>{{ $i18n.t('dashboard.info.ticketCount') }} : </span>
+              <span>{{ $i18n.t('dashboard.info.ticket') }} : </span>
               <span style="font-size: 18px;font-weight: bold;">
                 <router-link :to="{path: '/admin/ticket/index'}">{{ dashboard.ticketCount }}</router-link>
+              </span>
+              <br>
+            </span>
+            <span>
+              <span>{{ $i18n.t('dashboard.info.withdraw') }} : </span>
+              <span style="font-size: 18px;font-weight: bold;">
+                <router-link :to="{path: '/admin/withdrawal'}">{{ dashboard.withdrawCount }}</router-link>
               </span>
               <br>
             </span>
@@ -77,21 +84,13 @@
             </span>
           </a-card>
         </a-col>
-        <div>
-          <span style="margin-right: 10px">
-            <a-button type="primary" @click="cleanCache">{{ $i18n.t('dashboard.cache.clean') }}</a-button>
-          </span>
-          <span style="margin-right: 10px">
-            <a-button type="primary" @click="notifyRenew">{{ $i18n.t('dashboard.notify.renew') }}</a-button>
-          </span>
-        </div>
       </div>
     </a-row>
   </page-header-wrapper>
 </template>
 
 <script>
-import { getDashboardInfo, cleanCache, notifyRenew } from '@/api/dashboard'
+import { getDashboardInfo } from '@/api/dashboard'
 
 export default {
   name: 'Dashboard',
@@ -107,20 +106,6 @@ export default {
       this.dashboard = result.data
       this.loading = false
       console.log(this.dashboard)
-    }
-  },
-  methods: {
-    async cleanCache  () {
-      const result = await cleanCache()
-      if (result.code === 200) {
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
-    },
-    async notifyRenew  () {
-      const result = await notifyRenew()
-      if (result.code === 200) {
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
     }
   }
 }

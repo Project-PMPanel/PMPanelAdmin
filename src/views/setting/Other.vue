@@ -14,6 +14,12 @@
             <a-input v-model="otherConfig.userTrafficLogLimitDays" @blur="updateConfigByName('userTrafficLogLimitDays', otherConfig.userTrafficLogLimitDays)"/>
           </a-form-item>
         </a-form>
+        <span style="margin-right: 10px">
+          <a-button type="primary" @click="cleanCache">{{ $i18n.t('dashboard.cache.clean') }}</a-button>
+        </span>
+        <span style="margin-right: 10px">
+          <a-button type="primary" @click="notifyRenew">{{ $i18n.t('dashboard.notify.renew') }}</a-button>
+        </span>
       </a-col>
     </a-row>
   </div>
@@ -21,6 +27,7 @@
 
 <script>
 import { getOtherConfig, updateConfigByName } from '@/api/settings'
+import { cleanCache, notifyRenew } from '@/api/dashboard'
 
 export default {
   data () {
@@ -43,6 +50,18 @@ export default {
         'value': value
       }
       const result = await updateConfigByName(params)
+      if (result.code === 200) {
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
+      }
+    },
+    async cleanCache  () {
+      const result = await cleanCache()
+      if (result.code === 200) {
+        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
+      }
+    },
+    async notifyRenew  () {
+      const result = await notifyRenew()
       if (result.code === 200) {
         this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
       }

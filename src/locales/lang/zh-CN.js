@@ -64,8 +64,9 @@ const locale = {
   'menu.commission': '佣金记录',
   'menu.withdrawal': '提现管理',
 
+  'dashboard.info.todo': '待办',
   'dashboard.info.ticket': '工单',
-  'dashboard.info.ticketCount': '待办工单',
+  'dashboard.info.withdraw': '提现',
   'dashboard.info.node': '节点',
   'dashboard.info.nodeCount': '节点总数',
   'dashboard.info.offlineCount': '离线节点',

@@ -80,8 +80,9 @@ const locale = {
   'menu.commission': 'Commission',
   'menu.withdrawal': 'Withdrawal',
 
+  'dashboard.info.todo': 'Todo',
   'dashboard.info.ticket': 'Ticket',
-  'dashboard.info.ticketCount': 'Todo ticket',
+  'dashboard.info.withdraw': 'Withdraw',
   'dashboard.info.node': 'Node',
   'dashboard.info.nodeCount': 'Count',
   'dashboard.info.offlineCount': 'Offline',

@@ -69,13 +69,13 @@
               </span>
             </span>
             <span slot="heartbeat" slot-scope="text">
-              <a-badge v-if="new Date(text) > (Date.parse(new Date())/1000 - 120)" status="success" />
+              <a-badge v-if="Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120)" status="success" />
               <a-badge v-else status="error" />
               <span v-if="$i18n.locale === 'zh-CN'">
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
               </span>
               <span v-else>
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
             <span slot="online" slot-scope="text, record">
@@ -234,13 +234,13 @@
               </span>
             </span>
             <span slot="heartbeat" slot-scope="text">
-              <a-badge v-if="new Date(text) > (Date.parse(new Date())/1000 - 120)" status="success" />
+              <a-badge v-if="Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120)" status="success" />
               <a-badge v-else status="error" />
               <span v-if="$i18n.locale === 'zh-CN'">
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
               </span>
               <span v-else>
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
             <span slot="online" slot-scope="text, record">
@@ -405,13 +405,13 @@
               </span>
             </span>
             <span slot="heartbeat" slot-scope="text">
-              <a-badge v-if="new Date(text) > (Date.parse(new Date())/1000 - 120)" status="success" />
+              <a-badge v-if="Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120)" status="success" />
               <a-badge v-else status="error" />
               <span v-if="$i18n.locale === 'zh-CN'">
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? '在线' : '离线' }}
               </span>
               <span v-else>
-                {{ new Date(text) > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
+                {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
             <span slot="online" slot-scope="text, record">
