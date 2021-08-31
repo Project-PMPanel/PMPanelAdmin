@@ -262,6 +262,7 @@ const locale = {
   'order.list.payTime': 'Payment',
   'order.list.operation': 'Operation',
   'order.list.operation.detail': 'Detail',
+  'order.list.operation.confirm': 'Confirm',
   'plan.order.details.planName': 'Plan',
   'plan.order.details.orderId': 'Order ID',
   'plan.order.details.createdTime': 'Created Time',
