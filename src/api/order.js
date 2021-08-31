@@ -53,6 +53,19 @@ export function deleteOrderById (parameter) {
   })
 }
 
+export function cancelOrder (parameter) {
+  return new Promise((resolve, reject) => {
+    request({
+      url: api.order + '/cancel/' + parameter,
+      method: 'put'
+    }).then(response => {
+      resolve(response)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
 export function confirmOrder (parameter) {
   return new Promise((resolve, reject) => {
     request({

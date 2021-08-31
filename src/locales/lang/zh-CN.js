@@ -249,6 +249,7 @@ const locale = {
   'order.list.operation': '操作',
   'order.list.operation.detail': '详情',
   'order.list.operation.confirm': '确认支付',
+  'order.list.operation.cancel': '取消',
   'plan.order.details.planName': '套餐名称',
   'plan.order.details.orderId': '订单ID',
   'plan.order.details.createdTime': '创建时间',
