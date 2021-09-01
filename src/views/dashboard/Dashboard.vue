@@ -10,14 +10,14 @@
             <span>
               <span>{{ $i18n.t('dashboard.info.ticket') }} : </span>
               <span style="font-size: 18px;font-weight: bold;">
-                <router-link :to="{path: '/admin/ticket/index'}">{{ dashboard.ticketCount }}</router-link>
+                <router-link :to="{path: '/admin/manage/ticket/index'}">{{ dashboard.ticketCount }}</router-link>
               </span>
               <br>
             </span>
             <span>
               <span>{{ $i18n.t('dashboard.info.withdraw') }} : </span>
               <span style="font-size: 18px;font-weight: bold;">
-                <router-link :to="{path: '/admin/withdrawal'}">{{ dashboard.withdrawCount }}</router-link>
+                <router-link :to="{path: '/admin/manage/withdrawal'}">{{ dashboard.withdrawCount }}</router-link>
               </span>
               <br>
             </span>
@@ -28,7 +28,7 @@
             <span>
               <span>{{ $i18n.t('dashboard.info.nodeCount') }} : </span>
               <span style="font-size: 18px;font-weight: bold;">
-                <router-link :to="{path: '/admin/node'}">{{ dashboard.nodeCount }}</router-link>
+                <router-link :to="{path: '/admin/manage/node'}">{{ dashboard.nodeCount }}</router-link>
               </span>
               <br>
             </span>
@@ -44,7 +44,7 @@
             <span>
               <span>{{ $i18n.t('dashboard.info.userCount') }} : </span>
               <span style="font-size: 18px;font-weight: bold;">
-                <router-link :to="{path: '/admin/user'}">{{ dashboard.userCount }}</router-link>
+                <router-link :to="{path: '/admin/manage/user'}">{{ dashboard.userCount }}</router-link>
               </span>
               <br>
             </span>
