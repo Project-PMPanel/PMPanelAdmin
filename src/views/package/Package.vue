@@ -6,7 +6,7 @@
           <a-row :gutter="48">
             <a-col :md="8" :sm="24">
               <a-form-item :label="this.$i18n.locale === 'zh-CN' ? '订单ID' : 'Order ID'">
-                <a-input v-model="queryParam.orderId" placeholder=""/>
+                <a-input v-model="queryParam.id" placeholder=""/>
               </a-form-item>
             </a-col>
             <a-col :md="8" :sm="24">
@@ -45,27 +45,16 @@
             {{ text }}
           </router-link>
         </span>
-        <span slot="name" slot-scope="text, record">
-          {{ $i18n.locale === 'zh-CN' ? record.name : record.nameEnglish }}
+        <span slot="orderId" slot-scope="text">
+          <router-link :to="'/admin/funds/order/detail/' + text">
+            {{ text }}
+          </router-link>
         </span>
         <span slot="price" slot-scope="text">
           {{ text | numberFormat }}
         </span>
-        <span slot="action" slot-scope="text, record">
-          <template>
-            <router-link :to="{path:'/admin/funds/order/detail/'+record.orderId}">{{ $t('order.list.operation.detail') }}</router-link>
-            <a-divider v-if="record.status === 1" type="vertical" />
-            <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.refund')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="refundOrder(record.orderId)">
-              <a>{{ $t('order.list.operation.refund') }}</a>
-            </a-popconfirm>
-            <a-divider v-if="record.status === 0 || record.status === 1 || record.status === 2" type="vertical" />
-            <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.cancel')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="cancelOrder(record.orderId)">
-              <a>{{ $t('order.list.operation.cancel') }}</a>
-            </a-popconfirm>
-            <a-popconfirm v-if="record.status === 0 || record.status === 2" :title="$t('order.list.operation.confirm')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="confirmOrder(record.orderId)">
-              <a>{{ $t('order.list.operation.confirm') }}</a>
-            </a-popconfirm>
-          </template>
+        <span slot="transferEnable" slot-scope="text">
+          {{ text / 1024 / 1024 / 1024 }} GB
         </span>
       </s-table>
     </a-card>
@@ -73,7 +62,7 @@
 </template>
 
 <script>
-import { getOrder, deleteOrderById, refundOrder, cancelOrder, confirmOrder } from '@/api/order'
+import { getPackage } from '@/api/package'
 import { STable } from '@/components'
 
 export default {
@@ -86,7 +75,13 @@ export default {
         {
           title: '#',
           align: 'center',
-          dataIndex: 'orderId'
+          dataIndex: 'id'
+        },
+        {
+          title: this.$i18n.t('order.list.relatedOrder'),
+          align: 'center',
+          dataIndex: 'orderId',
+          scopedSlots: { customRender: 'orderId' }
         },
         {
           title: this.$i18n.t('order.list.user'),
@@ -95,15 +90,15 @@ export default {
           scopedSlots: { customRender: 'userId' }
         },
         {
-          title: this.$i18n.t('order.list.name'),
-          align: 'center',
-          dataIndex: this.$i18n.locale === 'zh-CN' ? 'planDetailsMap.name' : 'planDetailsMap.nameEnglish'
-        },
-        {
           title: this.$i18n.t('order.list.price'),
           align: 'center',
-          dataIndex: 'price',
-          scopedSlots: { customRender: 'price' }
+          dataIndex: 'price'
+        },
+        {
+          title: this.$i18n.t('order.list.transferEnable'),
+          align: 'center',
+          dataIndex: 'transferEnable',
+          scopedSlots: { customRender: 'transferEnable' }
         },
         {
           title: this.$i18n.t('order.list.created'),
@@ -119,13 +114,6 @@ export default {
           title: this.$i18n.t('order.list.payTime'),
           align: 'center',
           dataIndex: 'payTime'
-        },
-        {
-          title: this.$i18n.t('order.list.operation'),
-          align: 'center',
-          width: '150px',
-          dataIndex: 'action',
-          scopedSlots: { customRender: 'action' }
         }
       ],
       // 高级搜索 展开/关闭
@@ -138,7 +126,7 @@ export default {
       loadData: parameter => {
         const requestParameters = Object.assign({}, parameter, this.queryParam)
         console.log('loadData request parameters:', requestParameters)
-        return getOrder(requestParameters)
+        return getPackage(requestParameters)
           .then(res => {
             this.totalCount = res.data.totalCount
             return res.data
@@ -180,13 +168,6 @@ export default {
           title: this.$i18n.t('order.list.payTime'),
           align: 'center',
           dataIndex: 'payTime'
-        },
-        {
-          title: this.$i18n.t('order.list.operation'),
-          align: 'center',
-          width: '150px',
-          dataIndex: 'action',
-          scopedSlots: { customRender: 'action' }
         }
       ]
     }
@@ -194,34 +175,6 @@ export default {
   methods: {
     handleSelectStatus (val) {
       this.queryParam.status = val
-    },
-    async deleteOrderById (id) {
-      const result = await deleteOrderById(id)
-      if (result.code === 200) {
-        this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
-    },
-    async refundOrder (id) {
-      const result = await refundOrder(id)
-      if (result.code === 200) {
-        this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
-    },
-    async cancelOrder (id) {
-      const result = await cancelOrder(id)
-      if (result.code === 200) {
-        this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
-    },
-    async confirmOrder (id) {
-      const result = await confirmOrder(id)
-      if (result.code === 200) {
-        this.$refs.table.refresh() // refresh() 不传参默认值 false 不刷新到分页第一页
-        this.$i18n.locale === 'zh-CN' ? this.$message.success(result.message) : this.$message.success(result.messageEnglish)
-      }
     }
   }
 }

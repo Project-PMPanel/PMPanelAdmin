@@ -65,6 +65,7 @@ const locale = {
   'menu.setting.other': 'Other',
   'menu.setting.oauth': 'Oauth',
   'menu.setting.client': 'Client',
+  'menu.manage': 'Manage',
   'menu.node': 'Nodes',
   'menu.node.list': 'Nodes',
   'menu.node.online': 'Online',
@@ -79,6 +80,7 @@ const locale = {
   'menu.order.detail': 'Details',
   'menu.commission': 'Commission',
   'menu.withdrawal': 'Withdrawal',
+  'menu.funds': 'Funds',
 
   'dashboard.info.todo': 'Todo',
   'dashboard.info.ticket': 'Ticket',
@@ -257,7 +259,9 @@ const locale = {
 
   'order.list.name': 'Name',
   'order.list.user': 'User',
+  'order.list.relatedOrder': 'Related Order',
   'order.list.price': 'Price',
+  'order.list.transferEnable': 'Traffic',
   'order.list.created': 'Creation',
   'order.list.expire': 'Expiration',
   'order.list.payTime': 'Payment',

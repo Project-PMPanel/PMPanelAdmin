@@ -10,14 +10,14 @@
             type="inner"
             @openChange="onOpenChange"
           >
-            <a-menu-item key="/admin/node/list">
-              <router-link :to="{ path: '/admin/node/list' }">
+            <a-menu-item key="/admin/manage/node/list">
+              <router-link :to="{ path: '/admin/manage/node/list' }">
                 <a-icon type="deployment-unit" />
                 {{ $i18n.t('menu.node.list') }}
               </router-link>
             </a-menu-item>
-            <a-menu-item key="/admin/node/detect">
-              <router-link :to="{ path: '/admin/node/detect' }">
+            <a-menu-item key="/admin/manage/node/detect">
+              <router-link :to="{ path: '/admin/manage/node/detect' }">
                 <a-icon type="audit" />
                 {{ $i18n.t('menu.node.detect') }}
               </router-link>

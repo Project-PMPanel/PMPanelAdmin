@@ -220,7 +220,7 @@ export default {
     },
     handleDetail (id) {
       console.log(id)
-      this.$router.push('/admin/user/' + id)
+      this.$router.push('/admin/manage/user/' + id)
     },
     async handleDelete (id) {
       console.log(id)

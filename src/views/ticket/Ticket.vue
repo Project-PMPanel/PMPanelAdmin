@@ -5,7 +5,7 @@
         <a-card :body-style="{padding: '0'}" :bordered="false">
           <s-table ref="table" size="default" rowKey="id" :columns="ticketColumns" :data="loadTicketData">
             <span slot="userId" slot-scope="text">
-              <router-link :to="'/admin/user/' + text">
+              <router-link :to="'/admin/manage/user/' + text">
                 {{ text }}
               </router-link>
             </span>
@@ -16,7 +16,7 @@
             </span>
             <span slot="action" slot-scope="text, record">
               <template>
-                <router-link :to="{path:'/admin/ticket/detail/'+record.id}">{{ $t('ticket.detail') }}</router-link>
+                <router-link :to="{path:'/admin/manage/ticket/detail/'+record.id}">{{ $t('ticket.detail') }}</router-link>
                 <a-divider type="vertical" />
                 <a-popconfirm :title="$t('ticket.operation.deleteConfirm')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="deleteTicketById(record.id)">
                   <a>{{ $t('ticket.operation.delete') }}</a>

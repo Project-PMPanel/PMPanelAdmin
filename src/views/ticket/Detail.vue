@@ -7,7 +7,7 @@
       <a-col>
         <div style="font-size: 24px;color: #777171;font-weight: bold;margin-bottom: 24px">
           {{ tickets[0].title }} by
-          <router-link :to="'/admin/user/' + tickets[0].userId">
+          <router-link :to="'/admin/manage/user/' + tickets[0].userId">
             {{ tickets[0].userId }}
           </router-link>
         </div>

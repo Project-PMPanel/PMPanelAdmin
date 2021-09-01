@@ -5,7 +5,7 @@
         <a-card :body-style="{padding: '0'}" :bordered="false">
           <s-table ref="table" size="default" rowKey="id" :columns="nodeColumns" :data="loadData">
             <span slot="userId" slot-scope="text">
-              <router-link :to="'/admin/user/' + text">
+              <router-link :to="'/admin/manage/user/' + text">
                 {{ text }}
               </router-link>
             </span>

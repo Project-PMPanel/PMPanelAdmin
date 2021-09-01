@@ -38,7 +38,7 @@ export const asyncRouterMap = [
         component: () => import('@/views/setting/Index'),
         meta: { title: 'menu.setting', hideHeader: true, icon: 'setting' },
         redirect: '/admin/setting/site',
-        hideChildrenInMenu: true,
+        hideChildrenInMenu: false,
         children: [
           {
             path: '/admin/setting/site',
@@ -84,115 +84,143 @@ export const asyncRouterMap = [
           }
         ]
       },
-      // nodes
+      // manage
       {
-        path: '/admin/node',
-        name: 'node',
-        component: () => import('@/views/node/Index'),
-        meta: { title: 'menu.node', hideHeader: true, icon: 'cloud-server' },
-        redirect: '/admin/node/list',
-        hideChildrenInMenu: true,
+        path: '/admin/manage',
+        name: 'manage',
+        component: () => import('@/views/setting/Index'),
+        meta: { title: 'menu.manage', hideHeader: true, icon: 'control' },
+        redirect: '/admin/manage/node',
+        hideChildrenInMenu: false,
         children: [
+          // nodes
           {
-            path: '/admin/node/list',
-            name: 'nodeList',
-            component: () => import('@/views/node/List'),
-            meta: { title: 'menu.node.list', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+            path: '/admin/manage/node',
+            name: 'node',
+            component: () => import('@/views/node/Index'),
+            meta: { title: 'menu.node', hideHeader: true, icon: 'cloud-server' },
+            redirect: '/admin/manage/node/list',
+            hideChildrenInMenu: true,
+            children: [
+              {
+                path: '/admin/manage/node/list',
+                name: 'nodeList',
+                component: () => import('@/views/node/List'),
+                meta: { title: 'menu.node.list', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+              },
+              {
+                path: '/admin/manage/node/online/:type/:nodeId',
+                name: 'nodeOnline',
+                component: () => import('@/views/node/nodeOnline'),
+                meta: { title: 'menu.node.online', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+              },
+              {
+                path: '/admin/manage/node/detect',
+                name: 'detect',
+                component: () => import('@/views/node/Detect'),
+                meta: { title: 'menu.node.detect', hidden: true, keepAlive: true, permission: [ 'admin' ] }
+              }
+            ]
+          },
+          // user
+          {
+            path: '/admin/manage/user',
+            name: 'userList',
+            component: () => import('@/views/user/User'),
+            meta: { title: 'menu.user', hidden: true, keepAlive: false, icon: 'team', permission: [ 'admin' ] }
+          },
+          // user detail
+          {
+            path: '/admin/manage/user/:id',
+            name: 'userDetail',
+            component: () => import('@/views/user/Detail'),
+            hidden: true,
+            meta: { title: 'menu.user.detail', hidden: true, keepAlive: false, permission: [ 'admin' ] }
           },
           {
-            path: '/admin/node/online/:type/:nodeId',
-            name: 'nodeOnline',
-            component: () => import('@/views/node/nodeOnline'),
-            meta: { title: 'menu.node.online', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+            path: '/admin/manage/plan',
+            name: 'planList',
+            component: () => import('@/views/plan/Plan'),
+            meta: { title: 'menu.plan', keepAlive: false, icon: 'shopping-cart', permission: [ 'admin' ] }
+          },
+          // ticket
+          {
+            path: '/admin/manage/ticket',
+            name: 'ticket',
+            redirect: '/admin/manage/ticket/index',
+            component: RouteView,
+            meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] },
+            hideChildrenInMenu: true,
+            children: [
+              {
+                path: '/admin/manage/ticket/index',
+                name: 'ticketIndex',
+                component: () => import('@/views/ticket/Ticket'),
+                meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] }
+              },
+              {
+                path: '/admin/manage/ticket/detail/:id',
+                name: 'ticketDetail',
+                component: () => import('@/views/ticket/Detail'),
+                meta: { hidden: true, keepAlive: false, permission: [ 'admin' ] }
+              }
+            ]
           },
           {
-            path: '/admin/node/detect',
-            name: 'detect',
-            component: () => import('@/views/node/Detect'),
-            meta: { title: 'menu.node.detect', hidden: true, keepAlive: true, permission: [ 'admin' ] }
+            path: '/admin/manage/tutorial',
+            name: 'tutorial',
+            component: () => import('@/views/tutorial/Tutorial'),
+            meta: { title: 'menu.tutorial', keepAlive: false, icon: 'profile', permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/manage/announcement',
+            name: 'announcement',
+            component: () => import('@/views/announcement/Announcement'),
+            meta: { title: 'menu.announcement', keepAlive: false, icon: 'notification', permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/manage/withdrawal',
+            name: 'withdrawal',
+            component: () => import('@/views/withdrawal/Withdrawal'),
+            meta: { title: 'menu.withdrawal', icon: 'transaction', keepAlive: true, permission: [ 'admin' ] }
           }
         ]
       },
-      // user
+      // funds
       {
-        path: '/admin/user',
-        name: 'userList',
-        component: () => import('@/views/user/User'),
-        meta: { title: 'menu.user', keepAlive: false, icon: 'team', permission: [ 'admin' ] }
-      },
-      // user detail
-      {
-        path: '/admin/user/:id',
-        name: 'userDetail',
-        component: () => import('@/views/user/Detail'),
-        hidden: true,
-        meta: { title: 'menu.user.detail', hidden: true, keepAlive: false, permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/plan',
-        name: 'planList',
-        component: () => import('@/views/plan/Plan'),
-        meta: { title: 'menu.plan', keepAlive: false, icon: 'shopping-cart', permission: [ 'admin' ] }
-      },
-      // ticket
-      {
-        path: '/admin/ticket',
-        name: 'ticket',
-        redirect: '/admin/ticket/index',
-        component: RouteView,
-        meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] },
-        hideChildrenInMenu: true,
+        path: '/admin/funds',
+        name: 'funds',
+        component: () => import('@/views/setting/Index'),
+        meta: { title: 'menu.funds', hideHeader: true, icon: 'account-book' },
+        redirect: '/admin/funds/order',
+        hideChildrenInMenu: false,
         children: [
           {
-            path: 'index',
-            name: 'ticketIndex',
-            component: () => import('@/views/ticket/Ticket'),
-            meta: { title: 'menu.ticket', keepAlive: false, icon: 'highlight', permission: [ 'admin' ] }
+            path: '/admin/funds/order',
+            name: 'order',
+            component: () => import('@/views/order/Order'),
+            meta: { title: 'menu.order', keepAlive: false, icon: 'file-text', permission: [ 'admin' ] }
           },
           {
-            path: '/admin/ticket/detail/:id',
-            name: 'ticketDetail',
-            component: () => import('@/views/ticket/Detail'),
-            meta: { hidden: true, keepAlive: false, permission: [ 'admin' ] }
+            path: '/admin/funds/order/detail/:orderId',
+            name: 'orderDetail',
+            hidden: true,
+            component: () => import('@/views/order/Detail'),
+            meta: { title: 'menu.order.detail', keepAlive: true, permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/funds/package',
+            name: 'package',
+            component: () => import('@/views/package/Package'),
+            meta: { title: 'menu.package', keepAlive: false, icon: 'file-excel', permission: [ 'admin' ] }
+          },
+          {
+            path: '/admin/funds/commission',
+            name: 'commission',
+            component: () => import('@/views/commission/Commission'),
+            meta: { title: 'menu.commission', icon: 'solution', keepAlive: true, permission: [ 'admin' ] }
           }
         ]
-      },
-      {
-        path: '/admin/tutorial',
-        name: 'tutorial',
-        component: () => import('@/views/tutorial/Tutorial'),
-        meta: { title: 'menu.tutorial', keepAlive: false, icon: 'profile', permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/announcement',
-        name: 'announcement',
-        component: () => import('@/views/announcement/Announcement'),
-        meta: { title: 'menu.announcement', keepAlive: false, icon: 'notification', permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/order',
-        name: 'order',
-        component: () => import('@/views/order/Order'),
-        meta: { title: 'menu.order', keepAlive: false, icon: 'file-text', permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/order/detail/:orderId',
-        name: 'orderDetail',
-        hidden: true,
-        component: () => import('@/views/order/Detail'),
-        meta: { title: 'menu.order.detail', keepAlive: true, permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/commission',
-        name: 'commission',
-        component: () => import('@/views/commission/Commission'),
-        meta: { title: 'menu.commission', icon: 'solution', keepAlive: true, permission: [ 'admin' ] }
-      },
-      {
-        path: '/admin/withdrawal',
-        name: 'withdrawal',
-        component: () => import('@/views/withdrawal/Withdrawal'),
-        meta: { title: 'menu.withdrawal', icon: 'transaction', keepAlive: true, permission: [ 'admin' ] }
       },
       // Exception
       {
