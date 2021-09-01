@@ -130,7 +130,10 @@ const locale = {
   'settings.payment.alipay.alipay.alipayConfig.wap': 'Enable H5',
   'settings.payment.alipay.alipay.alipayConfig.f2f': 'Enable F2F',
   'settings.payment.wxpay': 'wxpay',
+
   'settings.other.trafficSaveDays': 'User traffic logs days',
+  'settings.other.notifyInfo': 'Notify',
+  'settings.other.notifyInfoRule': 'type(success,info,warning,error)-title-content',
 
   'settings.oauth.enable': 'Enable',
   'settings.oauth.google.enable': 'Google',

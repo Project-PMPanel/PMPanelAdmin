@@ -117,6 +117,8 @@ const locale = {
   'settings.payment.wxpay': '微信',
 
   'settings.other.trafficSaveDays': '流量日志保留天数',
+  'settings.other.notifyInfo': '弹窗通知',
+  'settings.other.notifyInfoRule': '类型(success,info,warning,error)-标题-内容',
 
   'settings.oauth.enable': '开启三方登录',
   'settings.oauth.google.enable': 'Google',

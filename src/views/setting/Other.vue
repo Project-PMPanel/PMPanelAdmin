@@ -13,6 +13,10 @@
           <a-form-item :label="$t('settings.other.trafficSaveDays')">
             <a-input v-model="otherConfig.userTrafficLogLimitDays" @blur="updateConfigByName('userTrafficLogLimitDays', otherConfig.userTrafficLogLimitDays)"/>
           </a-form-item>
+
+          <a-form-item :label="$t('settings.other.notifyInfo')">
+            <a-textarea :auto-size="{ minRows: 2, maxRows: 6 }" :placeholder="$t('settings.other.notifyInfoRule')" v-model="otherConfig.notifyInfo" @blur="updateConfigByName('notifyInfo', otherConfig.notifyInfo)"/>
+          </a-form-item>
         </a-form>
         <span style="margin-right: 10px">
           <a-button type="primary" @click="cleanCache">{{ $i18n.t('dashboard.cache.clean') }}</a-button>
