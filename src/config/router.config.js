@@ -100,7 +100,7 @@ export const asyncRouterMap = [
             meta: { title: 'menu.node.list', hidden: true, keepAlive: false, permission: [ 'admin' ] }
           },
           {
-            path: '/admin/node/online/:nodeId',
+            path: '/admin/node/online/:type/:nodeId',
             name: 'nodeOnline',
             component: () => import('@/views/node/nodeOnline'),
             meta: { title: 'menu.node.online', hidden: true, keepAlive: false, permission: [ 'admin' ] }

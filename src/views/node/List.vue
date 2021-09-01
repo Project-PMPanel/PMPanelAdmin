@@ -78,12 +78,12 @@
                 {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
-            <span slot="online" slot-scope="text, record">
+            <span slot="onlineCount" slot-scope="text, record">
               <span v-if="text === 0">
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/node/online/ss/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
@@ -243,12 +243,12 @@
                 {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
-            <span slot="online" slot-scope="text, record">
+            <span slot="onlineCount" slot-scope="text, record">
               <span v-if="text === 0">
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/node/online/v2ray/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
@@ -414,12 +414,12 @@
                 {{ Date.parse(new Date(text))/1000 > (Date.parse(new Date())/1000 - 120) ? 'Online' : 'Offline' }}
               </span>
             </span>
-            <span slot="online" slot-scope="text, record">
+            <span slot="onlineCount" slot-scope="text, record">
               <span v-if="text === 0">
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/node/online/trojan/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
@@ -565,6 +565,12 @@ export default {
           scopedSlots: { customRender: 'heartbeat' }
         },
         {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
+        },
+        {
           title: this.$i18n.t('node.list.operation'),
           align: 'center',
           width: '150px',
@@ -642,6 +648,12 @@ export default {
           scopedSlots: { customRender: 'heartbeat' }
         },
         {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
+        },
+        {
           title: this.$i18n.t('node.list.operation'),
           align: 'center',
           width: '150px',
@@ -709,6 +721,12 @@ export default {
           scopedSlots: { customRender: 'heartbeat' }
         },
         {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
+        },
+        {
           title: this.$i18n.t('node.list.operation'),
           align: 'center',
           width: '150px',
@@ -774,6 +792,12 @@ export default {
           scopedSlots: { customRender: 'heartbeat' }
         },
         {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
+        },
+        {
           title: this.$i18n.t('node.list.operation'),
           align: 'center',
           width: '150px',
@@ -833,6 +857,12 @@ export default {
         {
           title: this.$i18n.t('node.list.online'),
           align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
+        },
+        {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
           dataIndex: 'online',
           scopedSlots: { customRender: 'online' }
         },
@@ -888,6 +918,12 @@ export default {
           align: 'center',
           dataIndex: 'heartbeat',
           scopedSlots: { customRender: 'heartbeat' }
+        },
+        {
+          title: this.$i18n.t('node.list.online'),
+          align: 'center',
+          dataIndex: 'onlineCount',
+          scopedSlots: { customRender: 'onlineCount' }
         },
         {
           title: this.$i18n.t('node.list.operation'),

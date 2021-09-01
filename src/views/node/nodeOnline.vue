@@ -62,7 +62,7 @@ export default {
       ],
       loadIpData: parameter => {
         // TODO 根据url参数获取当前类型节点的详细在线信息
-        return getNodeInfoByTypeNodeId(Object.assign(parameter), this.$route.params.nodeId)
+        return getNodeInfoByTypeNodeId(Object.assign(parameter), this.$route.params.type, this.$route.params.nodeId)
           .then(res => {
             console.log(res.data)
             return res.data

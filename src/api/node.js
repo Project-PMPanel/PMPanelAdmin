@@ -83,10 +83,10 @@ export function getV2rayNode (parameter) {
  * @param parameter
  * @returns {AxiosPromise}
  */
-export function getNodeInfoByTypeNodeId (parameter, nodeId) {
+export function getNodeInfoByTypeNodeId (parameter, type, nodeId) {
   return new Promise((resolve, reject) => {
     request({
-      url: api.node + '/' + nodeId,
+      url: api.node + '/' + type + '/' + nodeId,
       method: 'get',
       params: parameter
     }).then(response => {
