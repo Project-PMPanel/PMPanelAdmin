@@ -88,7 +88,7 @@ export const asyncRouterMap = [
       {
         path: '/admin/manage',
         name: 'manage',
-        component: () => import('@/views/setting/Index'),
+        component: () => import('@/views/manage/Index'),
         meta: { title: 'menu.manage', hideHeader: true, icon: 'control' },
         redirect: '/admin/manage/node',
         hideChildrenInMenu: false,
