@@ -1,10 +1,7 @@
 <template>
   <page-header-wrapper :breadcrumb="{}">
     <a-row :gutter="24">
-      <div v-if="loading" style="text-align: center;margin: 40px 0">
-        <a-spin size="large" tip="Loading..." :spinning="loading"/>
-      </div>
-      <div v-else>
+      <div>
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
           <a-card :title="$i18n.t('dashboard.info.todo')" :bordered="false" style="height: 181px">
             <span>
@@ -84,6 +81,17 @@
             </span>
           </a-card>
         </a-col>
+        <a-col :xl="24" :md="24" :sm="24" :style="{ marginBottom: '24px' }">
+          <a-card style="margin-bottom: 24px" :bordered="false">
+            <span slot="title">
+              <a-icon type="money-collect" />
+              {{ $t('dashboard.info.incomeDetails') }}
+            </span>
+            <div>
+              <div id="container"></div>
+            </div>
+          </a-card>
+        </a-col>
       </div>
     </a-row>
   </page-header-wrapper>
@@ -91,12 +99,15 @@
 
 <script>
 import { getDashboardInfo } from '@/api/dashboard'
+import { Chart } from '@antv/g2'
 
 export default {
   name: 'Dashboard',
+  components: {
+    Chart
+  },
   data () {
     return {
-      loading: true,
       dashboard: {}
     }
   },
@@ -104,8 +115,29 @@ export default {
     const result = await getDashboardInfo()
     if (result.code === 200) {
       this.dashboard = result.data
-      this.loading = false
-      console.log(this.dashboard)
+      const chart = new Chart({
+        container: 'container',
+        autoFit: true,
+        height: 500
+      })
+      chart.data(this.dashboard.incomeDetails)
+      chart.scale('value', {
+        nice: true
+      })
+      chart.axis('value', {
+        label: {
+          formatter: (val) => {
+            return val + ' CNY'
+          }
+        }
+      })
+      chart.tooltip({
+        showMarkers: false,
+        shared: true
+      })
+      chart.interval().position('month*value').color('type').shape('stack')
+      chart.interaction('active-region')
+      chart.render()
     }
   }
 }

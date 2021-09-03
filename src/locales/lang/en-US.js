@@ -97,6 +97,7 @@ const locale = {
   'dashboard.info.todayIncome': 'Today',
   'dashboard.info.todayOrderCount': 'Today Paid Count',
   'dashboard.info.monthPaidUserCount': 'This Month Paid Count',
+  'dashboard.info.incomeDetails': 'Income Details',
   'dashboard.cache.clean': 'Clean Cache',
   'dashboard.notify.renew': 'Notify Renew',
 

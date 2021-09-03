@@ -13,9 +13,10 @@
   "dependencies": {
     "@ant-design-vue/pro-layout": "^1.0.6",
     "@antv/data-set": "^0.10.2",
+    "@antv/g2": "^4.1.25",
     "@kangc/v-md-editor": "^1.5.5",
     "ant-design-vue": "^1.6.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^3.1.2",
     "enquire.js": "^2.1.6",
     "js-base64": "^3.5.2",
