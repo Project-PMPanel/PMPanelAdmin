@@ -83,7 +83,7 @@
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/ss/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/manage/node/online/ss/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
@@ -248,7 +248,7 @@
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/v2ray/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/manage/node/online/v2ray/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
@@ -419,7 +419,7 @@
                 {{ text }}
               </span>
               <span v-else>
-                <router-link :to="{path: '/admin/node/online/trojan/' + record.id}">{{ text }}</router-link>
+                <router-link :to="{path: '/admin/manage/node/online/trojan/' + record.id}">{{ text }}</router-link>
               </span>
             </span>
             <span slot="action" slot-scope="text, record">
