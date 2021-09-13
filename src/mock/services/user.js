@@ -8,7 +8,7 @@ const info = (options) => {
     'name': '天野远子',
     'username': 'admin',
     'password': '',
-    'avatar': '/avatar.jpg',
+    'avatar': '',
     'status': 1,
     'telephone': '',
     'lastLoginIp': '27.154.74.117',
