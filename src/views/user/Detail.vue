@@ -25,7 +25,7 @@
                     {{ info.user[item] | numberFormat }}
                   </span>
                   <span v-else-if="item === 'parentId'">
-                    <router-link :to="'/admin/user/' + info.user[item]">{{ info.user[item] }}</router-link>
+                    <router-link :to="'/admin/manage/user/' + info.user[item]">{{ info.user[item] }}</router-link>
                   </span>
                   <span v-else-if="item === 'isAdmin'">
                     {{ info.user[item] === 0 ? $t('user.detail.isAdmin.user') : ( info.user[item] === 1 ? $t('user.detail.isAdmin.admin') : $t('user.detail.isAdmin.customerService')) }}
