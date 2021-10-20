@@ -28,14 +28,17 @@ const locale = {
 
   'login.info': 'Login by email & pass',
   'login.email': 'Email',
-  'login.emailMessage': 'Please input email address',
+  'login.emailMessage': 'Please input email',
   'login.password': 'Password',
   'login.passwordMessage': 'Please input password',
   'login.rememberMe': 'Remember Me',
+  'login.register': 'Register',
+  'login.forgetPass': 'Forget Pass',
   'login.loginBtn': 'Login',
   'login.failed': 'Login failed',
   'login.successWelcome': 'Welcome',
   'login.successInfo': 'welcome back',
+  'login.signInWith': 'Sign in with',
 
   'register.title': 'Register',
   'register.email': 'Email',

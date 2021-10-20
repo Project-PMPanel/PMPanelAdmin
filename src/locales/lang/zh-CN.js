@@ -32,10 +32,13 @@ const locale = {
   'login.password': '密码',
   'login.passwordMessage': '请输入密码',
   'login.rememberMe': '记住登录',
+  'login.register': '注册账户',
+  'login.forgetPass': '忘记密码',
   'login.loginBtn': '登陆',
   'login.failed': '登录失败',
   'login.successWelcome': '欢迎',
   'login.successInfo': '欢迎回来',
+  'login.signInWith': '其他登陆方式',
 
   'menu.home': '主页',
   'menu.usercenter': '用户中心',
