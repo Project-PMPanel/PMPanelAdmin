@@ -160,6 +160,7 @@ const locale = {
   'node.list.trafficRate': 'TrafficRate',
   'node.list.class': 'Class',
   'node.list.speedlimit': 'SpeedLimit',
+  'node.list.sort': 'Sort',
   'node.list.flag': 'Enable',
   'node.list.connector': 'OnlineCountLimit',
   'node.list.bandwidth': 'Bandwidth',

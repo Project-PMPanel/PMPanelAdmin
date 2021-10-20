@@ -145,6 +145,7 @@ const locale = {
   'node.list.trafficRate': '流量倍率',
   'node.list.class': '等级',
   'node.list.speedlimit': '限速',
+  'node.list.sort': '排序',
   'node.list.flag': '启用',
   'node.list.connector': '在线数量',
   'node.list.bandwidth': '已用流量',

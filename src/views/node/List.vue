@@ -44,6 +44,9 @@
               <a-form-item :label="$t('node.list.speedlimit')">
                 <a-input v-model="newSsNode.speedlimit"/>
               </a-form-item>
+              <a-form-item :label="$t('node.list.sort')">
+                <a-input v-model="newSsNode.sort"/>
+              </a-form-item>
               <a-form-item :label="$t('node.list.flag')">
                 <a-switch v-model="newSsNode.flag">
                   <a-icon slot="checkedChildren" type="check" />
@@ -137,6 +140,9 @@
             <a-form-item :label="$t('node.list.speedlimit')">
               <a-input v-model="editOldSsNode.speedlimit"/>
             </a-form-item>
+            <a-form-item :label="$t('node.list.sort')">
+              <a-input v-model="editOldSsNode.sort"/>
+            </a-form-item>
             <a-form-item :label="$t('node.list.flag')">
               <a-switch v-model="editOldSsNode.flag">
                 <a-icon slot="checkedChildren" type="check" />
@@ -208,6 +214,9 @@
               </a-form-item>
               <a-form-item :label="$t('node.list.speedlimit')">
                 <a-input v-model="newV2rayNode.speedlimit"/>
+              </a-form-item>
+              <a-form-item :label="$t('node.list.sort')">
+                <a-input v-model="newV2rayNode.sort"/>
               </a-form-item>
               <a-form-item :label="$t('node.list.flag')">
                 <a-switch v-model="newV2rayNode.flag">
@@ -319,6 +328,9 @@
             <a-form-item :label="$t('node.list.speedlimit')">
               <a-input v-model="editOldV2rayNode.speedlimit"/>
             </a-form-item>
+            <a-form-item :label="$t('node.list.sort')">
+              <a-input v-model="editOldV2rayNode.sort"/>
+            </a-form-item>
             <a-form-item :label="$t('node.list.flag')">
               <a-switch v-model="editOldV2rayNode.flag">
                 <a-icon slot="checkedChildren" type="check" />
@@ -374,6 +386,9 @@
               </a-form-item>
               <a-form-item :label="$t('node.list.speedlimit')">
                 <a-input v-model="newTrojanNode.speedlimit"/>
+              </a-form-item>
+              <a-form-item :label="$t('node.list.sort')">
+                <a-input v-model="newTrojanNode.sort"/>
               </a-form-item>
               <a-form-item :label="$t('node.list.flag')">
                 <a-switch v-model="newTrojanNode.flag">
@@ -473,6 +488,9 @@
             </a-form-item>
             <a-form-item :label="$t('node.list.speedlimit')">
               <a-input v-model="editOldTrojanNode.speedlimit"/>
+            </a-form-item>
+            <a-form-item :label="$t('node.list.sort')">
+              <a-input v-model="editOldTrojanNode.sort"/>
             </a-form-item>
             <a-form-item :label="$t('node.list.flag')">
               <a-switch v-model="editOldTrojanNode.flag">
