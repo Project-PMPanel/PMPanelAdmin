@@ -99,14 +99,35 @@ export const asyncRouterMap = [
             name: 'node',
             component: () => import('@/views/node/Index'),
             meta: { title: 'menu.node', hideHeader: true, icon: 'cloud-server' },
-            redirect: '/admin/manage/node/list',
+            redirect: '/admin/manage/node/ss',
             hideChildrenInMenu: true,
             children: [
               {
                 path: '/admin/manage/node/list',
                 name: 'nodeList',
-                component: () => import('@/views/node/List'),
-                meta: { title: 'menu.node.list', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+                component: RouteView,
+                meta: { title: 'menu.node.list', hidden: true, keepAlive: false, permission: [ 'admin' ] },
+                redirect: '/admin/manage/node/ss',
+                children: [
+                  {
+                    path: '/admin/manage/node/ss',
+                    name: 'ssList',
+                    component: () => import('@/views/node/ss/List'),
+                    meta: { title: 'menu.node.list.ss', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+                  },
+                  {
+                    path: '/admin/manage/node/v2ray',
+                    name: 'ssList',
+                    component: () => import('@/views/node/v2ray/List'),
+                    meta: { title: 'menu.node.list.v2ray', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+                  },
+                  {
+                    path: '/admin/manage/node/trojan',
+                    name: 'ssList',
+                    component: () => import('@/views/node/trojan/List'),
+                    meta: { title: 'menu.node.list.trojan', hidden: true, keepAlive: false, permission: [ 'admin' ] }
+                  }
+                ]
               },
               {
                 path: '/admin/manage/node/online/:type/:nodeId',

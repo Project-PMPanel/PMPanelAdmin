@@ -10,12 +10,26 @@
             type="inner"
             @openChange="onOpenChange"
           >
-            <a-menu-item key="/admin/manage/node/list">
-              <router-link :to="{ path: '/admin/manage/node/list' }">
-                <a-icon type="deployment-unit" />
-                {{ $i18n.t('menu.node.list') }}
-              </router-link>
-            </a-menu-item>
+            <a-sub-menu key="/admin/manage/node" :title="$i18n.t('menu.node.list')">
+              <a-menu-item key="/admin/manage/node/ss">
+                <router-link :to="{ path: '/admin/manage/node/ss' }">
+                  <my-icon type="icon-ss" />
+                  {{ $i18n.t('menu.node.list.ss') }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item key="/admin/manage/node/v2ray">
+                <router-link :to="{ path: '/admin/manage/node/v2ray' }">
+                  <my-icon type="icon-v2ray" />
+                  {{ $i18n.t('menu.node.list.v2ray') }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item key="/admin/manage/node/trojan">
+                <router-link :to="{ path: '/admin/manage/node/trojan' }">
+                  <my-icon type="icon-trojan" />
+                  {{ $i18n.t('menu.node.list.trojan') }}
+                </router-link>
+              </a-menu-item>
+            </a-sub-menu>
             <a-menu-item key="/admin/manage/node/detect">
               <router-link :to="{ path: '/admin/manage/node/detect' }">
                 <a-icon type="audit" />
