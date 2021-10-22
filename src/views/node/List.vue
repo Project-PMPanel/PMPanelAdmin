@@ -566,9 +566,14 @@ export default {
           dataIndex: 'outPort'
         },
         {
-          title: this.$i18n.t('node.list.method'),
+          title: this.$i18n.t('node.list.subServer'),
           align: 'center',
-          dataIndex: 'method'
+          dataIndex: 'subServer'
+        },
+        {
+          title: this.$i18n.t('node.list.subPort'),
+          align: 'center',
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.flag'),
@@ -644,14 +649,14 @@ export default {
           dataIndex: 'outPort'
         },
         {
-          title: this.$i18n.t('node.list.network'),
+          title: this.$i18n.t('node.list.subServer'),
           align: 'center',
-          dataIndex: 'network'
+          dataIndex: 'subServer'
         },
         {
-          title: this.$i18n.t('node.list.security'),
+          title: this.$i18n.t('node.list.subPort'),
           align: 'center',
-          dataIndex: 'security'
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.flag'),
@@ -719,6 +724,16 @@ export default {
           title: this.$i18n.t('node.list.outPort'),
           align: 'center',
           dataIndex: 'outPort'
+        },
+        {
+          title: this.$i18n.t('node.list.subServer'),
+          align: 'center',
+          dataIndex: 'subServer'
+        },
+        {
+          title: this.$i18n.t('node.list.subPort'),
+          align: 'center',
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.grpc'),
@@ -793,9 +808,14 @@ export default {
           dataIndex: 'outPort'
         },
         {
-          title: this.$i18n.t('node.list.method'),
+          title: this.$i18n.t('node.list.subServer'),
           align: 'center',
-          dataIndex: 'method'
+          dataIndex: 'subServer'
+        },
+        {
+          title: this.$i18n.t('node.list.subPort'),
+          align: 'center',
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.flag'),
@@ -851,14 +871,14 @@ export default {
           dataIndex: 'outPort'
         },
         {
-          title: this.$i18n.t('node.list.network'),
+          title: this.$i18n.t('node.list.subServer'),
           align: 'center',
-          dataIndex: 'network'
+          dataIndex: 'subServer'
         },
         {
-          title: this.$i18n.t('node.list.security'),
+          title: this.$i18n.t('node.list.subPort'),
           align: 'center',
-          dataIndex: 'security'
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.flag'),
@@ -918,6 +938,16 @@ export default {
           title: this.$i18n.t('node.list.outPort'),
           align: 'center',
           dataIndex: 'outPort'
+        },
+        {
+          title: this.$i18n.t('node.list.subServer'),
+          align: 'center',
+          dataIndex: 'subServer'
+        },
+        {
+          title: this.$i18n.t('node.list.subPort'),
+          align: 'center',
+          dataIndex: 'subPort'
         },
         {
           title: this.$i18n.t('node.list.grpc'),
