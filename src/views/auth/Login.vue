@@ -48,7 +48,7 @@
 import { mapActions } from 'vuex'
 import storage from 'store'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
-import { getSiteConfig, loginWithOther } from '@/api/auth'
+import { getSiteConfig } from '@/api/auth'
 
 export default {
   components: {
@@ -196,14 +196,6 @@ export default {
         }
       }
       return ''
-    },
-    signWithGoogle: async function () {
-      console.log('sign with google')
-      const result = await loginWithOther('google')
-      console.log(result)
-      if (result.code === 200) {
-        this.href(result.data.url)
-      }
     },
     href: function (url) {
       window.location.href = url
