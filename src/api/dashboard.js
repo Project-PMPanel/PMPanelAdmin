@@ -2,6 +2,7 @@ import request from '@/utils/request'
 
 const api = {
   dashboard: '/admin/dashboard',
+  income: '/admin/income',
   cache: '/admin/cache',
   notifyRenew: '/admin/notifyRenew'
 }
@@ -14,6 +15,23 @@ export function getDashboardInfo () {
   return new Promise((resolve, reject) => {
     request({
       url: api.dashboard,
+      method: 'get'
+    }).then(response => {
+      resolve(response)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+/**
+ * 获取income信息
+ * @returns {AxiosPromise}
+ */
+export function getIncomeInfo () {
+  return new Promise((resolve, reject) => {
+    request({
+      url: api.income,
       method: 'get'
     }).then(response => {
       resolve(response)

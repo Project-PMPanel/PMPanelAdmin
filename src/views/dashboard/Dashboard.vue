@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import { getDashboardInfo } from '@/api/dashboard'
+import { getDashboardInfo, getIncomeInfo } from '@/api/dashboard'
 import { Chart } from '@antv/g2'
 
 export default {
@@ -108,19 +108,24 @@ export default {
   },
   data () {
     return {
-      dashboard: {}
+      dashboard: {},
+      income: {}
     }
   },
   async created () {
-    const result = await getDashboardInfo()
-    if (result.code === 200) {
-      this.dashboard = result.data
+    const dashboardResult = await getDashboardInfo()
+    const incomeResult = await getIncomeInfo()
+    if (dashboardResult.code === 200) {
+      this.dashboard = dashboardResult.data
+    }
+    if (incomeResult.code === 200) {
+      this.income = incomeResult.data
       const chart = new Chart({
         container: 'container',
         autoFit: true,
         height: 500
       })
-      chart.data(this.dashboard.incomeDetails)
+      chart.data(this.income.incomeDetails)
       chart.scale('value', {
         nice: true
       })
