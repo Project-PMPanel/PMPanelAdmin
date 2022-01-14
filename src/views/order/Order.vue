@@ -21,6 +21,7 @@
                   <a-select-option :value="0">{{ $i18n.locale === 'zh-CN' ? '待付款' : 'Wait for pay' }}</a-select-option>
                   <a-select-option :value="2">{{ $i18n.locale === 'zh-CN' ? '已取消' : 'Cancel' }}</a-select-option>
                   <a-select-option :value="3">{{ $i18n.locale === 'zh-CN' ? '已失效' : 'Invalid' }}</a-select-option>
+                  <a-select-option :value="4">{{ $i18n.locale === 'zh-CN' ? '待退款' : 'Refund' }}</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
@@ -54,16 +55,16 @@
         <span slot="action" slot-scope="text, record">
           <template>
             <router-link :to="{path:'/admin/funds/order/detail/'+record.orderId}">{{ $t('order.list.operation.detail') }}</router-link>
-            <a-divider v-if="record.status === 1" type="vertical" />
-            <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.refund')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="refundOrder(record.orderId)">
-              <a>{{ $t('order.list.operation.refund') }}</a>
-            </a-popconfirm>
             <a-divider v-if="record.status === 0 || record.status === 1 || record.status === 2" type="vertical" />
             <a-popconfirm v-if="record.status === 1" :title="$t('order.list.operation.cancel')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="cancelOrder(record.orderId)">
               <a>{{ $t('order.list.operation.cancel') }}</a>
             </a-popconfirm>
             <a-popconfirm v-if="record.status === 0 || record.status === 2" :title="$t('order.list.operation.confirm')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="confirmOrder(record.orderId)">
               <a>{{ $t('order.list.operation.confirm') }}</a>
+            </a-popconfirm>
+            <a-divider v-if="record.status === 4" type="vertical" />
+            <a-popconfirm v-if="record.status === 4" :title="$t('order.list.operation.refund')" :ok-text="$t('setting.yes')" :cancel-text="$t('setting.no')" @confirm="refundOrder(record.orderId)">
+              <a>{{ $t('order.list.operation.refund') }}</a>
             </a-popconfirm>
           </template>
         </span>

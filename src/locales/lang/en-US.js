@@ -84,6 +84,7 @@ const locale = {
   'menu.announcement': 'Announcement',
   'menu.order': 'Order',
   'menu.order.detail': 'Details',
+  'menu.package': 'Traffic',
   'menu.commission': 'Commission',
   'menu.withdrawal': 'Withdrawal',
   'menu.funds': 'Funds',
