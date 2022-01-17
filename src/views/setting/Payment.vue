@@ -69,6 +69,7 @@
                 <a-input v-model="paymentConfig.stripeConfig.currency" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="currency" /><br><br>
                 <a-input v-model="paymentConfig.stripeConfig.sk_live" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="sk_live" /><br><br>
                 <a-input v-model="paymentConfig.stripeConfig.webhook_secret" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="webhook_secret" /><br><br>
+                <a-input v-model="paymentConfig.stripeConfig.return_url" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="return_url" /><br><br>
               </a-form-item>
             </a-form>
           </a-tab-pane>
