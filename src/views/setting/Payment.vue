@@ -16,6 +16,7 @@
                 <a-select :value="paymentConfig.alipay" @change="handleSelectAlipay">
                   <a-select-option value="none">{{ $t('settings.payment.alipay.close') }}</a-select-option>
                   <a-select-option value="alipay">{{ $t('settings.payment.alipay.alipay') }}</a-select-option>
+                  <a-select-option value="stripe">Stripe</a-select-option>
                 </a-select>
               </a-form-item>
 
@@ -62,6 +63,13 @@
                     <a-icon slot="unCheckedChildren" type="close" />
                   </a-switch>
                 </a-form-item>
+              </a-form-item>
+
+              <a-form-item v-if="paymentConfig.alipay === 'stripe' " :label="$t('settings.payment.stripeConfig')">
+                <a-input v-model="paymentConfig.stripeConfig.currency" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="currency" /><br><br>
+                <a-input v-model="paymentConfig.stripeConfig.sk_live" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="sk_live" /><br><br>
+                <a-input v-model="paymentConfig.stripeConfig.webhook_secret" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="webhook_secret" /><br><br>
+                <a-input v-model="paymentConfig.stripeConfig.return_url" @blur="updateConfigByName('stripeConfig', paymentConfig.stripeConfig)" placeholder="return_url" /><br><br>
               </a-form-item>
             </a-form>
           </a-tab-pane>

@@ -121,6 +121,10 @@ const locale = {
   'settings.payment.alipay.alipay.alipayConfig.web': '开启PC支付',
   'settings.payment.alipay.alipay.alipayConfig.wap': '开启H5支付',
   'settings.payment.alipay.alipay.alipayConfig.f2f': '开启当面付',
+  'settings.payment.stripeConfig': 'Stripe配置',
+  'settings.payment.alipay.alipay.stripeConfig.currency': 'currency',
+  'settings.payment.alipay.alipay.stripeConfig.sk_live': 'sk_live',
+  'settings.payment.alipay.alipay.stripeConfig.webhook_secret': 'webhook_secret',
   'settings.payment.wxpay': '微信',
 
   'settings.other.trafficSaveDays': '流量日志保留天数',

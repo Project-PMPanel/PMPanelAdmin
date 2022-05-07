@@ -84,6 +84,7 @@ const locale = {
   'menu.announcement': 'Announcement',
   'menu.order': 'Order',
   'menu.order.detail': 'Details',
+  'menu.package': 'Traffic',
   'menu.commission': 'Commission',
   'menu.withdrawal': 'Withdrawal',
   'menu.funds': 'Funds',
@@ -136,6 +137,10 @@ const locale = {
   'settings.payment.alipay.alipay.alipayConfig.web': 'Enable PC',
   'settings.payment.alipay.alipay.alipayConfig.wap': 'Enable H5',
   'settings.payment.alipay.alipay.alipayConfig.f2f': 'Enable F2F',
+  'settings.payment.stripeConfig': 'Stripe config',
+  'settings.payment.alipay.alipay.stripeConfig.currency': 'currency',
+  'settings.payment.alipay.alipay.stripeConfig.sk_live': 'sk_live',
+  'settings.payment.alipay.alipay.stripeConfig.webhook_secret': 'webhook_secret',
   'settings.payment.wxpay': 'wxpay',
 
   'settings.other.trafficSaveDays': 'User traffic logs days',
